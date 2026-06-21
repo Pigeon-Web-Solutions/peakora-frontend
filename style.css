@@ -1079,3 +1079,28 @@ header.style-1 .main-menu > ul > li .mega-menu .menu-row {
     font-size: 30px;
 }
 }
+
+
+.about_section{
+  background: #f3f5f7;
+}
+.home3-about-section .about-content .section-title p {
+    max-width: unset;
+    margin: 0;
+    padding-top: 30px;
+}
+@media (max-width: 992px) {
+  .abtimgrt{
+    margin-top: 30px;
+  }
+}
+@media (max-width: 450px) {
+  .home3-about-section .about-content .section-title p {
+    padding-top: 16px;
+}
+    .home3-about-section .about-content .section-title h4 {
+        font-size: 18px;
+        line-height: 30px;
+    }
+}
+
