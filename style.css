@@ -1065,5 +1065,17 @@ header.style-1 .main-menu > ul > li .mega-menu .menu-row {
     padding-top: 16px;
      max-width: 850px;
 }
-
-
+.peakora-footer-col h3 {
+    font-weight: 400;
+}
+.peakora-footer-col a {
+    font-weight: 400;
+}
+.section-title h2 {
+    font-size: 32px;
+}
+@media (max-width: 576px) {
+.section-title h2 {
+    font-size: 30px;
+}
+}
