@@ -1078,7 +1078,7 @@ header.style-1 .main-menu > ul > li .mega-menu .menu-row {
 }
 
 .about_section {
-  background: #f3f5f7;
+  background: #f8fbff;
 }
 .home3-about-section .about-content .section-title p {
   max-width: unset;
@@ -1234,4 +1234,85 @@ header.style-1 .main-menu > ul > li .mega-menu .menu-row {
     width: 100%;
     padding: 25px;
   }
+}
+
+
+ .img-moon {
+    position: absolute;
+    top: 38px;
+    right: 48px;
+    width: 52px;
+    height: 52px;
+    background: radial-gradient(circle at 38% 38%, #fffde7, #fef08a 40%, #fbbf24 70%, transparent 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 28px 10px rgba(251,191,36,0.25), 0 0 60px 20px rgba(251,191,36,0.1);
+    z-index: 3;
+  }
+
+
+
+.why_choose{
+    background: linear-gradient(rgba(0, 0, 0, 0.75)), url('assets/img/sky.jpg') bottom/cover no-repeat;
+    padding: 60px 0;
+}
+.why_choose h2{
+    color: #fff;
+    font-weight: 500;
+}
+.why_choose p{
+    color: #ddd;
+}
+.why_card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.why_icon{
+  background: #dbecfa;
+  padding: 10px;
+  border-radius: 5px;
+}
+.why_icon img{
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+.why_card h3 {
+  font-size: 20px;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+.why_card p {
+  margin-bottom: 0;
+  color: #444;
+  font-size: 16px;
+  line-height: 20px;
+}
+.why_row{
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 30px;
+  align-items: center;
+}
+.whydiv .image img{
+   border: 5px solid #fff;
+   border-top-left-radius: 100px;
+   border-bottom-right-radius: 100px;
+}
+@media (max-width: 992px) {
+.why_row{
+  grid-template-columns: auto;
+  gap: 20px;
+}
+.why_card h3 {
+    font-size: 18px;
+}
+.why_card p {
+    font-size: 15px;
+}
 }
