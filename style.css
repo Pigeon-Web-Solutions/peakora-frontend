@@ -1316,3 +1316,13 @@ header.style-1 .main-menu > ul > li .mega-menu .menu-row {
     font-size: 15px;
 }
 }
+
+
+
+.destination-card2 .destination-img img {
+    height: 320px;
+    width: 100%;
+    object-fit: cover;
+}
+
+
