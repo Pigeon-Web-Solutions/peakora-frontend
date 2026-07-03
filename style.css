@@ -1326,3 +1326,40 @@ header.style-1 .main-menu > ul > li .mega-menu .menu-row {
 }
 
 
+.trek_photos_container{
+  background: linear-gradient(rgba(236, 235, 252, 0.5)), url('assets/img/Blue\ and\ Green\ Bold\ New\ Zealand\ Presentation.jpg');
+  background-position: top;
+  background-size: cover;
+  margin-bottom: 50px;
+  padding: 50px;
+  border-radius: 10px;
+}
+.trek_photos .section-title p {
+    max-width: 100%;
+}
+.trek_photos_wrapper{
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+.trekp_image_right img{
+  border-radius: 16px;
+}
+.home7-about-section .about-content .btn-and-counter-area {
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.primary-btn1.four.black-bg::after {
+    background-color: #000;
+}
+
+@media (max-width: 576px) {
+.trek_photos_container {
+    margin-bottom: 50px;
+    padding: 40px 20px;
+    border-radius: 10px;
+}
+}
