@@ -1625,3 +1625,49 @@ header.style-1 .main-menu > ul > li .mega-menu .menu-row {
     border: 1px solid #ccc;
     box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
 }
+
+
+@media (max-width: 991px) {
+    header.style-1 {
+        padding: 5px 0;
+    }
+}
+
+@media (max-width: 768px) {
+  .teskpktop {
+    padding-top: 40px;
+  }
+      .peakora-adventure-section {
+        padding: 40px 0 0 0;
+    }
+      .peakora-adventure-content {
+        padding: 12px 12px 5px 12px;
+    }
+    .why_choose {
+    padding: 40px 0 50px 0;
+}
+}
+
+@media (max-width: 576px) {
+    .tb-blog-section {
+        padding: 0 0 40px 0;
+    }
+    .peakora-footer-col {
+    padding: 20px 20px 0px 20px;
+}
+.peakora-contact-strip {
+    padding-bottom: 40px;
+    border-bottom: 0px solid rgba(255, 255, 255, 0.12);
+}
+.peakora-footer-grid {
+        padding: 0px 0;
+    }
+  .peakora-bottom {
+    border-top: 0px solid rgba(255, 255, 255, 0.12);
+}
+    .peakora-footer {
+        margin-top: 40px;
+        padding-top: 40px;
+    }
+}
+
