@@ -1598,3 +1598,25 @@ header.style-1 .main-menu > ul > li .mega-menu .menu-row {
   height: 80px;
 }
 }
+
+
+
+.faq-wrap .accordion .accordion-item .accordion-body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+.faq-wrap .accordion .accordion-item {
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 0px solid #ccc;
+    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+}
+.faq-wrap .accordion .accordion-item.active {
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+}
