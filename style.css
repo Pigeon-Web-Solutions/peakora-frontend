@@ -1268,43 +1268,46 @@ header.style-1 .main-menu > ul > li .mega-menu .menu-row {
 }
 .why_card {
   background: #fff;
-  padding: 15px;
+  padding: 8px;
   border-radius: 5px;
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   margin-bottom: 20px;
   width: 100%;
 }
+.why_card:last-child {
+  margin-bottom: 0px;
+}
 .why_icon{
   background: #dbecfa;
-  padding: 10px;
+  padding: 8px;
   border-radius: 5px;
 }
 .why_icon img{
-  height: 50px;
+  height: 42px;
   width: auto;
   object-fit: contain;
 }
 .why_card h3 {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 0;
   font-weight: 500;
 }
 .why_card p {
   margin-bottom: 0;
   color: #444;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 20px;
 }
 .why_row{
   display: grid;
-  grid-template-columns: auto auto;
-  gap: 30px;
+  grid-template-columns: 40% 60%;
+  gap: 20px;
   align-items: center;
 }
 .whydiv .image img{
-   border: 5px solid #fff;
+   border: 2px solid #fff;
    border-top-left-radius: 100px;
    border-bottom-right-radius: 100px;
 }
