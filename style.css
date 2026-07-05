@@ -1073,17 +1073,21 @@ header.style-1 .main-menu > ul > li .mega-menu .menu-row {
 }
 @media (max-width: 576px) {
   .section-title h2 {
-    font-size: 30px;
+    font-size: 26px;
   }
 }
-
+@media (max-width: 576px) {
+    .peakora-adventure-heading h2 {
+        font-size: 26px!important;
+    }
+}
 .about_section {
   background: #f8fbff;
 }
 .home3-about-section .about-content .section-title p {
   max-width: unset;
   margin: 0;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 @media (max-width: 992px) {
   .abtimgrt {
@@ -1324,8 +1328,6 @@ header.style-1 .main-menu > ul > li .mega-menu .menu-row {
     width: 100%;
     object-fit: cover;
 }
-
-
 .trek_photos_container{
   background: linear-gradient(rgba(236, 235, 252, 0.5)), url('assets/img/Blue\ and\ Green\ Bold\ New\ Zealand\ Presentation.jpg');
   background-position: top;
@@ -1361,5 +1363,238 @@ header.style-1 .main-menu > ul > li .mega-menu .menu-row {
     margin-bottom: 50px;
     padding: 40px 20px;
     border-radius: 10px;
+}
+}
+
+
+.tb-blog-section {
+  color: #191d1a;
+  background: #ffffff;
+  padding: 10px 24px 70px 0;
+  box-sizing: border-box;
+}
+
+.tb-blog-section *,
+.tb-blog-section *::before,
+.tb-blog-section *::after {
+  box-sizing: border-box;
+}
+
+/* ---------- Header ---------- */
+
+.tb-blog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 25px;
+}
+
+.tb-blog-heading-group {
+  max-width: 720px;
+}
+
+.tb-blog-title {
+  margin: 0 0 12px 0;
+  position: relative;
+  display: inline-block;
+}
+
+.tb-blog-subtitle {
+  line-height: 1.6;
+  color: #5b615c;
+  margin: 0;
+}
+/* ---------- Grid ---------- */
+
+.tb-blog-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* ---------- Featured card ---------- */
+
+.tb-blog-featured {
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 420px;
+  text-decoration: none;
+  color: #ffffff;
+  box-shadow: 0 18px 40px -18px rgba(25, 29, 26, 0.35);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.tb-blog-featured:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -16px rgba(25, 29, 26, 0.42);
+}
+
+.tb-blog-featured-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.tb-blog-featured:hover .tb-blog-featured-img {
+  transform: scale(1.05);
+}
+
+.tb-blog-featured-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 14, 11, 0) 40%, rgba(10, 14, 11, 1) 100%);
+}
+
+.tb-blog-featured-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 28px 28px 30px;
+}
+
+.tb-blog-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 1px 15px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(6px);
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.tb-blog-pin-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.tb-blog-featured-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.home7-about-section .about-content .content p {
+    font-size: 16px;
+}
+.home7-about-section .about-content .btn-and-counter-area {
+    padding-top: 30px;
+}
+/* ---------- List ---------- */
+
+.tb-blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tb-blog-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #191d1a;
+  background: #ffffff;
+  border: 1px solid #e2e6e1;
+  flex: 1;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+}
+
+.tb-blog-item:hover {
+  border-color: transparent;
+  background: #f3f5f2;
+  box-shadow: 0 12px 28px -16px rgba(25, 29, 26, 0.25);
+  transform: translateY(-2px);
+}
+
+.tb-blog-item-thumb {
+  flex-shrink: 0;
+  width: 120px;
+  height: 85px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tb-blog-item-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.tb-blog-item:hover .tb-blog-item-thumb img {
+  transform: scale(1.08);
+}
+
+.tb-blog-item-content {
+  min-width: 0;
+}
+
+.tb-blog-item-meta {
+  display: inline-flex;
+  align-items: center;
+  color: #014c8f;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tb-blog-item-title {
+  margin: 0;
+  font-size: 16px;
+  color: #444;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 992px) {
+  .tb-blog-grid {
+    grid-template-columns: 1fr;
+  }
+.tb-blog-header {
+    display: block;
+}
+.section-title p {
+    margin-bottom: 10px;
+}
+  .tb-blog-featured {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 576px) {
+.tb-blog-section {
+    padding: 0 0 60px 0;
+}
+}
+
+@media (max-width: 420px) {
+.tb-blog-item-meta {
+    font-size: 12px;
+}
+.tb-blog-item-title {
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: -0.5px;
+}
+.tb-blog-item {
+    gap: 10px;
+    padding: 10px;
+}
+.tb-blog-item-thumb {
+  width: 100px;
+  height: 80px;
 }
 }
