@@ -1626,11 +1626,17 @@ header.style-1 .main-menu > ul > li .mega-menu .menu-row {
     box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
 }
 
+.about-img{
+  margin-top: -50px;
+}
 
 @media (max-width: 991px) {
     header.style-1 {
         padding: 10px 0;
     }
+    .about-img{
+  margin-bottom: 40px;
+}
 }
 
 @media (max-width: 768px) {
