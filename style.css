@@ -2737,3 +2737,304 @@ Touch Devices
         padding: 10px;
     }
 }
+
+
+.wraptophead h4{
+   margin-bottom: 10px!important;
+}
+.wraptophead p{
+  font-size: 16px;
+   margin-bottom: 20px!important;
+}
+
+
+.pkxPriceSidebarCard{
+    width:100%;
+    background:#fff;
+    border:1px solid #bfd8f5;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.pkxPriceTopArea{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    background:#f5f5f5;
+}
+
+.pkxPriceLeft{
+    padding:22px 20px 18px;
+    flex:1;
+}
+
+.pkxPriceLeft h2{
+    margin:0;
+    color:#1f3552;
+    font-size:24px;
+    font-weight:600;
+    line-height:1;
+}
+
+.pkxPriceLeft h2 span{
+    font-size:13px;
+    vertical-align:top;
+    margin-left:2px;
+    font-weight:700;
+}
+
+.pkxTripDays{
+    display:inline-block;
+    margin-top:10px;
+    padding: 2px 14px;
+    border:1px solid #8c97a4;
+    border-radius:30px;
+    font-size:14px;
+    color:#222;
+    background:#fff;
+}
+
+.pkxTripDays em{
+    font-style:italic;
+    color:#555;
+}
+
+.pkxTripDays del{
+    color:#444;
+}
+
+.pkxSaveRibbon{
+    width:80px;
+    background:#ffd77d;
+    text-align:center;
+    padding: 10px 10px 20px 10px;
+    position:relative;
+    flex-shrink:0;
+    margin-right: 20px;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 50% 85%, 0 100%);
+}
+
+.pkxSaveRibbon span{
+    display:block;
+    font-size:12px;
+    font-weight:600;
+    color:#000;
+    letter-spacing:.5px;
+    margin-bottom: -12px;
+}
+
+.pkxSaveRibbon strong{
+    display:block;
+    font-size:18px;
+    font-weight:700;
+    color:#000;
+    margin:2px 0;
+}
+
+.pkxSaveRibbon small{
+    display:block;
+    font-size:12px;
+    font-weight:500;
+    color:#000;
+    margin-top: -12px;
+}
+
+.pkxDiscountContent{
+    padding:10px 0 10px;
+}
+
+.pkxDiscountContent h3{
+    margin:0;
+    padding:0 20px;
+    color:#2d5f92;
+    font-size:18px;
+    font-weight:700;
+}
+
+.pkxDiscountContent p{
+    margin:8px 0 10px;
+    padding:0 20px;
+    font-size:14px;
+    line-height:1.35;
+    color:#555;
+}
+
+.pkxPriceTable{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.pkxPriceTable thead th{
+    background:#01396c;
+    color:#fff;
+    text-align:left;
+    padding:5px 20px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.pkxPriceTable thead th:last-child{
+    text-align:right;
+}
+
+.pkxPriceTable tbody td{
+    padding:5px 20px;
+    font-size:15px;
+    border-bottom:1px solid #ececec;
+}
+
+.pkxPriceTable tbody td:last-child{
+    text-align:right;
+    color:#000;
+}
+
+.pkxPriceTable tbody tr:nth-child(odd){
+    background:#f3f5f7;
+}
+
+.pkxSidebarButtons{
+    padding:18px 20px 0;
+}
+
+.pkxBookBtn,
+.pkxEnquireBtn{
+    display:block;
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:600;
+    padding:8px 18px;
+    border-radius:4px;
+    transition:.25s;
+    box-sizing:border-box;
+}
+.pkxEnquireBtn{
+    font-size:16px;
+    font-weight:600;
+    padding:4px 18px;
+}
+.pkxBookBtn{
+    background:#01396c;
+    color:#fff;
+}
+
+.pkxBookBtn:hover{
+    background:#014c8f;
+}
+
+.pkxEnquireBtn{
+    margin-top:12px;
+    border:2px solid #01396c;
+    color:#01396c;
+    background:#fff;
+}
+
+.pkxEnquireBtn:hover{
+    background:#002b53;
+    color:#fff;
+}
+
+.pkxPriceNote{
+    text-align:center;
+    margin-top:10px;
+    margin-bottom: 10px;
+    padding:0 20px;
+    color:#666;
+    font-size:14px;
+    font-weight:500;
+}
+
+@media(max-width:480px){
+
+    .pkxPriceLeft{
+        padding:18px 16px;
+    }
+
+    .pkxPriceLeft h2{
+        font-size:22px;
+    }
+
+    .pkxTripDays{
+        font-size:13px;
+        padding:7px 12px;
+    }
+
+    .pkxSaveRibbon{
+        width:74px;
+    }
+
+    .pkxSaveRibbon:after{
+        border-left:37px solid transparent;
+        border-right:37px solid transparent;
+    }
+
+    .pkxPriceTable thead th,
+    .pkxPriceTable tbody td{
+        padding:12px 16px;
+        font-size:14px;
+    }
+
+    .pkxSidebarButtons{
+        padding:10px 10px 0;
+    }
+
+    .pkxBookBtn,
+    .pkxEnquireBtn{
+        font-size:16px;
+    }
+
+}
+
+
+.package-details-page .package-details-warpper .package-info-wrap .package-info-list li .content strong {
+    font-size: 14px;
+}
+.package-details-page .package-details-warpper .package-info-wrap .package-info-list li .content span {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+.package-details-page .package-details-warpper .package-info-wrap .package-info-list {
+    grid-template-columns: auto auto auto;
+}
+.package-details-page .package-details-warpper .package-info-wrap .package-info-list {
+    padding: 30px 20px;
+    gap: 40px;
+    row-gap: 40px;
+}
+@media(max-width:768px){
+.package-details-page .package-details-warpper .package-info-wrap .package-info-list {
+    grid-template-columns: auto auto;
+}
+.sidebar_book_dsn{
+  margin-top: 0;
+}
+}
+@media(max-width:480px){
+.package-details-page .package-details-warpper .package-info-wrap .package-info-list {
+    grid-template-columns: auto;
+}
+}
+
+.icon span{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:20px;
+    flex-shrink:0;
+}
+
+.icon-blue{background:#2f6df6;}
+.icon-red{background:#ef6461;}
+.icon-green{background:#1f8a45;}
+.icon-yellow{background:#ffc107;}
+.icon-orange{background:#ff8a5b;}
+.icon-purple{background:#b16cf2;}
+.icon-sky{background:#1388d4;}
+.icon-teal{background:#18b7a3;}
+.icon-pink{background:#f06292;}
