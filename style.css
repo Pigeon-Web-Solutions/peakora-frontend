@@ -3038,3 +3038,31 @@ Touch Devices
 .icon-sky{background:#1388d4;}
 .icon-teal{background:#18b7a3;}
 .icon-pink{background:#f06292;}
+
+
+.package-details-page .package-details-warpper h4 {
+    margin-bottom: 15px;
+}
+.package-details-page .package-details-warpper .items-list li {
+    margin-bottom: 10px;
+}
+.icon_imagec img{
+  height: 20px;
+  margin-top: -3px;
+}
+.warptoptype2 ul p{
+  margin-bottom: 0!important;
+}
+.wraptophead p{
+  margin-bottom: 10px!important;
+}
+.staricn{
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  padding: 8px;
+  border-radius: 100%;
+  margin-right: 10px;
+  background: #014c8f;
+}
+
