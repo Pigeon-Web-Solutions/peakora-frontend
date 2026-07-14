@@ -3056,13 +3056,27 @@ Touch Devices
 .wraptophead p{
   margin-bottom: 10px!important;
 }
+.warptoptype2 h4{
+  font-weight: 500;
+  font-size: 24px;
+}
 .staricn{
-  height: 40px;
-  width: 40px;
+  height: 32px;
+  width: 32px;
   object-fit: contain;
-  padding: 8px;
+  padding: 5px;
   border-radius: 100%;
   margin-right: 10px;
   background: #014c8f;
+  margin-top: -5px;
 }
+.flightinfotrek .wraptophead{
+  border: 1px solid #bedcf8!important;
+  background: #e8f3ff;
+}
+.tripbriefing .wraptophead{
+  border: 1px solid #fcf4aa!important;
+  background: #fffdf4;
+}
+
 
