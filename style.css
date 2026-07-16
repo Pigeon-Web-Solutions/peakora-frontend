@@ -3071,12 +3071,79 @@ Touch Devices
   margin-top: -5px;
 }
 .flightinfotrek .wraptophead{
-  border: 1px solid #bedcf8!important;
-  background: #e8f3ff;
+  border: 1px solid #d8eafa!important;
+  background: #f1f8ff;
 }
 .tripbriefing .wraptophead{
-  border: 1px solid #fcf4aa!important;
-  background: #fffdf4;
+  border: 1px solid #eee7b1!important;
+  background: #fffdf7;
 }
+
+.nobgicon{
+  background: transparent;
+  height: 36px;
+    width: 36px;
+    object-fit: contain;
+    padding: 0px;
+    border-radius: 100%;
+    margin-right: 5px;
+    margin-top: -5px;
+}
+.titlecolorcustom{
+   color: #014c8f;
+}
+.flightinfotrek.two .warptoptype2{
+  background: #f3f9fd;
+}
+.iternary_list{
+  padding-left: 0;
+}
+.iternary_list li{
+  display: grid;
+  grid-template-columns: 80px auto;
+  background: #fff;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px dashed #a9d2f7;
+  margin-top: 20px;
+  min-height: 70px;
+}
+.iternary_list li div{
+  color: #014c8f;
+  font-weight: 600;
+  font-size: 18px;
+  background: #fffdf7;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #faf7f0;
+}
+.iternary_list li p{
+  line-height: 24px;
+  color: #000;
+  font-weight: 500;
+  padding-left: 10px;
+}
+@media(max-width:1200px){
+.iternary_list li p{
+  padding: 10px;
+}
+}
+@media(max-width:768px){
+.iternary_list li p{
+  font-size: 14px;
+}
+.iternary_list li div{
+  font-weight: 600;
+  font-size: 16px;
+}
+.iternary_list li{
+  grid-template-columns: 60px auto;
+}
+}
+
+
 
 
