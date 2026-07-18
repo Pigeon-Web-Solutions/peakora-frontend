@@ -701,7 +701,7 @@
                         </div>
                         <div class="highlights-tour-area mb-30 tripbriefing">  
                             <div class="highlights-wrap wraptophead warptoptype2">
-                                <h4><img src="assets/img/conversation.png" alt="Icon" class="staricn">Online Trip Briefing</h4>
+                                <h4><img src="assets/img/chat.png" alt="Icon" class="staricn nobgicon">Online Trip Briefing</h4>
                                 <p>After confirming your 10% booking deposit and receiving your documents, we quickly schedule an online briefing on WhatsApp. During the call, we will walk you through the itinerary, gear checklist, weather conditions, and exactly what to expect on the trail. </p>
                                 <p>As we answer your queries, we will guide you on physical and mental preparation for the trek. Our goal is to clear all your doubts and help you feel confident, ready, and excited for the trek.</p>
                             </div>
@@ -751,6 +751,41 @@
                                         <p>Trek from Pheriche to Tengboche (3,855 m / 12,664 ft ). Trek time: Approx. 5 hrs.</p>
                                     </li>
                                 </ul>
+                            </div>
+                        </div>
+                        <div class="highlights-tour-area mb-30">  
+                            <div class="highlights-wrap wraptophead warptoptype2">
+                                <h4 class="titlecolorcustom"><img src="assets/img/add-image.png" alt="Icon" class="staricn nobgicon">Everest Base Camp Gallery</h4>
+                                <section class="gxGalleryWrap">
+                                    <div class="gxGallerySlider">
+                                
+                                        <div class="gxSlide active">
+                                            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80" alt="">
+                                        </div>
+                                
+                                        <div class="gxSlide">
+                                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80" alt="">
+                                        </div>
+                                
+                                        <div class="gxSlide">
+                                            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80" alt="">
+                                        </div>
+                                
+                                        <div class="gxSlide">
+                                            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80" alt="">
+                                        </div>
+                                
+                                        <div class="gxSlide">
+                                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80" alt="">
+                                        </div>
+                                
+                                        <button class="gxArrow gxPrev"> <i class="bi bi-chevron-left"></i> </button>
+                                        <button class="gxArrow gxNext">  <i class="bi bi-chevron-right"></i></button>
+                                
+                                        <div class="gxDots"></div>
+                                
+                                    </div>
+                                </section>
                             </div>
                         </div>
                     </div>
@@ -2037,6 +2072,87 @@ LightGallery JS
         });
     </script>
     
+
+    <script>
+        const gxSlides = document.querySelectorAll(".gxSlide");
+        const gxPrev = document.querySelector(".gxPrev");
+        const gxNext = document.querySelector(".gxNext");
+        const gxDots = document.querySelector(".gxDots");
+        
+        let gxCurrent = 0;
+        let gxTimer;
+        
+        gxSlides.forEach((_,index)=>{
+            const dot=document.createElement("span");
+            if(index===0) dot.classList.add("active");
+        
+            dot.addEventListener("click",()=>{
+                gxCurrent=index;
+                gxShowSlide();
+                gxAuto();
+            });
+        
+            gxDots.appendChild(dot);
+        });
+        
+        const gxDotItems=document.querySelectorAll(".gxDots span");
+        
+        function gxShowSlide(){
+        
+            gxSlides.forEach(slide=>slide.classList.remove("active"));
+            gxDotItems.forEach(dot=>dot.classList.remove("active"));
+        
+            gxSlides[gxCurrent].classList.add("active");
+            gxDotItems[gxCurrent].classList.add("active");
+        
+        }
+        
+        gxNext.addEventListener("click",()=>{
+        
+            gxCurrent++;
+        
+            if(gxCurrent>=gxSlides.length){
+                gxCurrent=0;
+            }
+        
+            gxShowSlide();
+            gxAuto();
+        
+        });
+        
+        gxPrev.addEventListener("click",()=>{
+        
+            gxCurrent--;
+        
+            if(gxCurrent<0){
+                gxCurrent=gxSlides.length-1;
+            }
+        
+            gxShowSlide();
+            gxAuto();
+        
+        });
+        
+        function gxAuto(){
+        
+            clearInterval(gxTimer);
+        
+            gxTimer=setInterval(()=>{
+        
+                gxCurrent++;
+        
+                if(gxCurrent>=gxSlides.length){
+                    gxCurrent=0;
+                }
+        
+                gxShowSlide();
+        
+            },4500);
+        
+        }
+        
+        gxAuto();
+    </script>
 </body>
 
 </html>

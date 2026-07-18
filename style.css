@@ -3064,7 +3064,7 @@ Touch Devices
   height: 32px;
   width: 32px;
   object-fit: contain;
-  padding: 5px;
+  padding: 4px;
   border-radius: 100%;
   margin-right: 10px;
   background: #014c8f;
@@ -3080,12 +3080,12 @@ Touch Devices
 }
 
 .nobgicon{
-  background: transparent;
+  background: transparent!important;
   height: 36px;
     width: 36px;
     object-fit: contain;
     padding: 0px;
-    border-radius: 100%;
+    border-radius: 0%;
     margin-right: 5px;
     margin-top: -5px;
 }
@@ -3145,5 +3145,220 @@ Touch Devices
 }
 
 
+.gxGalleryWrap{
+    width:100%;
+    padding:20px 0;
+}
 
+.gxGallerySlider{
+    max-width:1200px;
+    margin:auto;
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+    box-shadow:0 18px 45px rgba(0,0,0,.18);
+}
+
+.gxSlide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:.8s ease;
+    visibility:hidden;
+}
+
+.gxSlide.active{
+    opacity:1;
+    visibility:visible;
+    position:relative;
+}
+
+.gxSlide img{
+    width:100%;
+    height:650px;
+    object-fit:cover;
+    display:block;
+}
+
+.gxArrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:24px;
+    color:#fff;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(10px);
+    transition:.35s;
+    z-index:10;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.18);
+}
+
+.gxArrow:hover{
+    background:#ffffff;
+    color:#111;
+    transform:translateY(-50%) scale(1.08);
+}
+
+.gxPrev{
+    left:10px;
+}
+
+.gxNext{
+    right:10px;
+}
+
+.gxDots{
+    position:absolute;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:12px;
+    z-index:10;
+}
+
+.gxDots span{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:rgba(255,255,255,.5);
+    cursor:pointer;
+    transition:.35s;
+}
+
+.gxDots span.active{
+    width:36px;
+    border-radius:50px;
+    background:#fff;
+}
+
+@media(max-width:992px){
+
+.gxSlide img{
+    height:500px;
+}
+
+.gxArrow{
+    width:48px;
+    height:48px;
+    font-size:24px;
+}
+
+}
+
+@media(max-width:768px){
+
+.gxSlide img{
+    height:360px;
+}
+
+.gxArrow{
+    width:42px;
+    height:42px;
+    font-size:20px;
+}
+
+.gxDots{
+    bottom:15px;
+}
+
+.gxDots span{
+    width:10px;
+    height:10px;
+}
+
+.gxDots span.active{
+    width:28px;
+}
+
+}
+
+@media(max-width:480px){
+
+.gxSlide img{
+    height:250px;
+}
+
+.gxPrev{
+    left:10px;
+}
+
+.gxNext{
+    right:10px;
+}
+
+.gxArrow{
+    width:36px;
+    height:36px;
+    font-size:18px;
+}
+
+}
+
+.gxArrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    color:#fff;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.35s ease;
+    z-index:10;
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
+}
+
+.gxArrow i{
+    font-size:24px;
+    line-height:1;
+    transition:.35s;
+}
+
+.gxArrow:hover{
+    background:#fff;
+    color:#111;
+    transform:translateY(-50%) scale(1.08);
+    box-shadow:0 18px 40px rgba(0,0,0,.28);
+}
+
+.gxArrow:active{
+    transform:translateY(-50%) scale(.95);
+}
+
+.gxPrev{
+    left:12px;
+}
+
+.gxNext{
+    right:12px;
+}
+
+@media(max-width:768px){
+
+.gxArrow{
+    width:48px;
+    height:48px;
+}
+
+.gxArrow i{
+    font-size:22px;
+}
+
+}
 
