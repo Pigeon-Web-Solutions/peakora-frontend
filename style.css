@@ -3785,3 +3785,53 @@ Touch Devices
         align-items: center;
     }
 }
+
+
+.trek_inclusions .warptoptype2{
+background: #f1f8ff;
+border: 1px solid #d6eafd!important;
+}
+.inclusion_list{
+  background: #fff;
+  border-radius: 6px;
+  border: 1px dashed #b3d6f7;
+  margin-top: 20px;
+}
+.incluson_head{
+  display: flex;
+  gap: 5px;
+  padding: 10px 10px 0 10px;
+  border-bottom: 1px solid #eee;
+}
+.inclusion_list .items-list{
+  padding: 0px 10px 10px 10px!important;
+  margin-top: 10px!important;
+}
+.inclusion_list .items-list p{
+  font-size: 15px!important;
+}
+.trek_inclusions ul li .icon_imagec{
+   height: 16px!important;
+   width:16px!important;
+   margin-top: -5px!important;
+}
+.trek_inclusions ul li .icon_imagec img {
+  height: 16px!important;
+  width:16px!important;
+}
+.trek_inclusions ul li {
+  gap: 6px!important;
+  margin-bottom: 10px!important;
+  align-items: flex-start!important;
+}
+.trek_inclusions ul li:last-child {
+  margin-bottom: 0px!important;
+}
+.trek_inclusions ul li p {
+  line-height: 18px!important;
+}
+.inclusion_list .incluson_head .icon_imagec img{
+  height: 24px!important;
+  color: #014c8f;
+}
+
