@@ -3835,3 +3835,29 @@ border: 1px solid #d6eafd!important;
   color: #014c8f;
 }
 
+.mapSection .warptoptype2{
+  background: #f8fbfc;
+}
+.mapSection .imagesec{
+  margin-top: 20px;
+}
+.mapSection .imagesec img{
+  border-radius: 5px;
+}
+.topmapSec{
+  display: flex;
+  justify-content: space-between;
+}
+.mapSection .pkx_download_pdf_btn {
+    padding: 0px 10px;
+    line-height: 20px;
+    height: 32px;
+    border: 1px solid #014c8f;
+}
+.mapSection .pkx_download_pdf_btn i {
+    font-size: 16px;
+}
+
+
+
+
