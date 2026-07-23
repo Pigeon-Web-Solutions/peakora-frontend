@@ -1650,6 +1650,89 @@
                                 </div>
                             </div>
                         </div>
+                         
+                        <div class="ebc-widget">
+                         
+                          <div class="ebc-header">
+                            <div class="ebc-icon">
+                              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 17l5-6 4 4 5-8 4 5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </div>
+                            <h1 class="ebc-title">Everest Base Camp Trek Temperature Chart</h1>
+                          </div>
+                         
+                          <div class="ebc-tabs">
+                            <button class="ebc-tab active" data-tab="daily">Daily Temperature Variation</button>
+                            <button class="ebc-tab" data-tab="monthly">Average Temperature (Month to Month)</button>
+                          </div>
+                         
+                          <div class="ebc-toprow">
+                            <div class="ebc-month-title" id="ebcMonthTitle">January</div>
+                            <div class="ebc-unit-toggle">
+                              Temperature in:
+                              <button class="ebc-unit active" data-unit="C">Celsius</button>
+                              <span class="ebc-sep">|</span>
+                              <button class="ebc-unit" data-unit="F">Fahrenheit</button>
+                            </div>
+                          </div>
+                         
+                          <div class="ebc-chart-panel">
+                            <div class="ebc-chart-scroll" id="ebcChartScroll">
+                              <img class="ebc-chart-image" id="ebcChartImage" src="" alt="Temperature chart">
+                            </div>
+                          </div>
+                         
+                          <div class="ebc-dots" id="ebcDots"></div>
+                         
+                        </div>
+
+                        <div class="highlights-tour-area mb-30 mapSection map_equipment">
+                            <div class="highlights-wrap wraptophead warptoptype2">
+                                <div class="topmapSec">
+                                    <h4 class="titlecolorcustom"><img src="assets/img/luggage.png" alt="Icon" class="staricn">EBC Trek Packing List</h4>
+                                    <a href="#" class="pkx_download_pdf_btn">
+                                      <i class="bi bi-download"></i>
+                                       Download Checklist
+                                    </a>
+                                </div>
+                                
+                                <div class="eqip_content_main">
+                                     <div class="equip_contop">
+                                        <p>The Everest Base Camp trek reaches elevations above 5,000 meters (Gorak Shep and Everest Base Camp), where temperatures and weather can change rapidly. We recommend you focus on packing light and preparing two bags: one luggage bag up to 9 kg max and another is a backpack up to 5 kg (20–30 liters). One porter is assigned for each pair of trekkers to handle your main luggage. Each porter carries a shared duffel bag/ruksak (50–60 litres) with a total weight limit of 18 kg, allowing up to 9 kg per trekker.</p>
+                                        <p>The complete packing list below will guide you on what to bring for the trek.</p>
+                                     </div>
+                                     <div class="equicardwrapper">
+                                        <div class="equipcard">
+                                            <div class="card_title">
+                                               <h4 class="titlecolorcustom"><img src="assets/img/little-kid.png" alt="Icon" class="staricn nobgicon">Head and Face</h4>
+                                            </div>
+                                            <ul class="card_list">
+                                                <li><img src="assets/img/add.png" alt="Icon" class="staricn nobgicon">Sun hat or cap (wide-brimmed)</li>
+                                                <li><img src="assets/img/add.png" alt="Icon" class="staricn nobgicon">Ear-covering warm hat or knitted beanie</li>
+                                                <li><img src="assets/img/add.png" alt="Icon" class="staricn nobgicon">Scarf, buff, or neck gaiter</li>
+                                                <li><img src="assets/img/add.png" alt="Icon" class="staricn nobgicon">UV-protection sunglasses</li>
+                                                <li><img src="assets/img/add.png" alt="Icon" class="staricn nobgicon">High SPF sunscreen and lip balm</li>
+                                            </ul>
+                                        </div>
+                                        <div class="equipcard">
+                                            <div class="card_title">
+                                               <h4 class="titlecolorcustom"><img src="assets/img/little-kid.png" alt="Icon" class="staricn nobgicon">Head and Face</h4>
+                                            </div>
+                                            <ul class="card_list">
+                                                <li><img src="assets/img/add.png" alt="Icon" class="staricn nobgicon">Sun hat or cap (wide-brimmed)</li>
+                                                <li><img src="assets/img/add.png" alt="Icon" class="staricn nobgicon">Ear-covering warm hat or knitted beanie</li>
+                                                <li><img src="assets/img/add.png" alt="Icon" class="staricn nobgicon">Scarf, buff, or neck gaiter</li>
+                                                <li><img src="assets/img/add.png" alt="Icon" class="staricn nobgicon">UV-protection sunglasses</li>
+                                                <li><img src="assets/img/add.png" alt="Icon" class="staricn nobgicon">High SPF sunscreen and lip balm</li>
+                                            </ul>
+                                        </div>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
 
@@ -2102,6 +2185,90 @@ LightGallery JS
 
         });
     </script>
+
+    
+<script>
+(function(){
+  var MONTHS = ["January","February","March","April","May","June","July",
+                "August","September","October","November","December"];
+ 
+  var state = { tab: "daily", unit: "C", monthIndex: 0 };
+ 
+  var chartImage  = document.getElementById("ebcChartImage");
+  var monthTitle  = document.getElementById("ebcMonthTitle");
+  var dotsWrap    = document.getElementById("ebcDots");
+  var chartScroll = document.getElementById("ebcChartScroll");
+ 
+  var MONTH_IMAGE_IDS = [1015,1016,1018,1019,1020,1024,1035,1039,1043,1050,1057,1062];
+  var MONTHLY_IMAGE_ID = 1074;
+ 
+  function getImageUrl(){
+    var id = state.tab === "daily" ? MONTH_IMAGE_IDS[state.monthIndex] : MONTHLY_IMAGE_ID;
+    var width = 2400, height = 420; // wide image so it scrolls horizontally
+    var url = "https://picsum.photos/id/" + id + "/" + width + "/" + height;
+    if(state.unit === "F"){ url += "?grayscale"; } // visible change on unit toggle
+    return url;
+  }
+ 
+  function buildDots(){
+    dotsWrap.innerHTML = "";
+    if(state.tab !== "daily"){
+      dotsWrap.style.display = "none";
+      return;
+    }
+    dotsWrap.style.display = "flex";
+    MONTHS.forEach(function(name, i){
+      var b = document.createElement("button");
+      b.setAttribute("aria-label", name);
+      if(i === state.monthIndex) b.classList.add("active");
+      b.addEventListener("click", function(){
+        state.monthIndex = i;
+        render();
+      });
+      dotsWrap.appendChild(b);
+    });
+  }
+ 
+  function render(){
+    // tabs
+    document.querySelectorAll(".ebc-tab").forEach(function(btn){
+      btn.classList.toggle("active", btn.dataset.tab === state.tab);
+    });
+    // unit buttons
+    document.querySelectorAll(".ebc-unit").forEach(function(btn){
+      btn.classList.toggle("active", btn.dataset.unit === state.unit);
+    });
+ 
+    monthTitle.textContent = state.tab === "daily" ? MONTHS[state.monthIndex] : "Monthly Overview";
+ 
+    buildDots();
+ 
+    chartImage.src = getImageUrl();
+    chartImage.alt = monthTitle.textContent + " temperature chart";
+ 
+    chartScroll.scrollLeft = 0; // reset scroll on every change
+  }
+ 
+  document.querySelectorAll(".ebc-tab").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      state.tab = btn.dataset.tab;
+      render();
+    });
+  });
+ 
+  document.querySelectorAll(".ebc-unit").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      state.unit = btn.dataset.unit;
+      render();
+    });
+  });
+ 
+  render();
+})();
+</script>
+
+
+
 </body>
 
 </html>
