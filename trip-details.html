@@ -1951,6 +1951,78 @@
                         </div>
                         </div>
                         </div>
+
+                        <div class="highlights-tour-area mb-30 video_review">
+                            <div class="highlights-wrap wraptophead warptoptype2">
+                                <section class="pkxReviewSection">
+ 
+                                  <div class="pkxReviewHeader">
+                                    <span class="pkxReviewHeaderIcon">
+                                      <svg viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4Z"/></svg>
+                                    </span>
+                                    <h2 class="titlecolorcustom">Travelers' Review</h2>
+                                  </div>
+                                 
+                                  <div class="pkxSliderWrap" id="pkxSliderWrap">
+                                 
+                                    <button class="pkxArrow pkxArrowPrev" id="pkxPrevBtn" aria-label="Previous video">
+                                      <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    </button>
+                                 
+                                    <div class="pkxSliderTrack" id="pkxSliderTrack">
+                                 
+                                      <!-- CARD 1 -->
+                                      <div class="pkxVideoJourneyCard" data-video="https://www.youtube.com/embed/gCRNEJxDJKM?si=gzu2Ex7SCzW77Pib">
+                                        <img class="pkxThumb" src="https://img.youtube.com/vi/gCRNEJxDJKM/maxresdefault.jpg" alt="Everest Base Camp Trek video thumbnail">
+                                        <div class="pkxCardOverlay">
+                                          <span class="pkxPlayBtn">
+                                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                          </span>
+                                        </div>
+                                      </div>
+                                 
+                                      <!-- CARD 2 -->
+                                      <div class="pkxVideoJourneyCard" data-video="https://www.youtube.com/embed/1La4QzGeaaQ">
+                                        <img class="pkxThumb" src="https://img.youtube.com/vi/1La4QzGeaaQ/maxresdefault.jpg" alt="Annapurna Circuit Trek video thumbnail">
+                                        <div class="pkxCardOverlay">
+                                          <span class="pkxPlayBtn">
+                                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                          </span>
+                                        </div>
+                                      </div>
+                                 
+                                    </div>
+                                 
+                                    <button class="pkxArrow pkxArrowNext" id="pkxNextBtn" aria-label="Next video">
+                                      <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    </button>
+                                 
+                                  </div>
+                                 
+                                  <div class="pkxDots" id="pkxDots"></div>
+                                 
+                                  <div class="pkxCardCaption d-none" id="pkxCaptionArea">
+                                    <div class="pkxNames">Ana, Selvem, Dave</div>
+                                    <div class="pkxTrekName">Everest Base Camp Trek</div>
+                                  </div>
+                                 
+                                </section>
+                                 
+                                <!-- Video popup modal -->
+                                <div class="pkxVideoModal" id="pkxVideoModal">
+                                  <div class="pkxModalInner">
+                                    <button class="pkxModalCloseBtn" id="pkxModalCloseBtn" aria-label="Close video">&times;</button>
+                                    <div class="pkxVideoFrameHolder" id="pkxVideoFrameHolder"></div>
+                                  </div>
+                                </div>
+                                <!-- ============ END HTML BLOCK ============ -->
+ 
+                            </div>
+                        </div>
+
+                        <div class="reviews_trip-page">
+                            <img src="assets/img/reviews-image.jpeg" alt="Image">
+                        </div>
                         
                     </div>
                 </div>
@@ -2486,6 +2558,103 @@ LightGallery JS
 })();
 </script>
 
+
+
+<script>
+(function(){
+  var track   = document.getElementById('pkxSliderTrack');
+  var cards   = Array.prototype.slice.call(track.querySelectorAll('.pkxVideoJourneyCard'));
+  var prevBtn = document.getElementById('pkxPrevBtn');
+  var nextBtn = document.getElementById('pkxNextBtn');
+  var dotsWrap= document.getElementById('pkxDots');
+  var captionArea = document.getElementById('pkxCaptionArea');
+  var modal   = document.getElementById('pkxVideoModal');
+  var frameHolder = document.getElementById('pkxVideoFrameHolder');
+  var closeBtn = document.getElementById('pkxModalCloseBtn');
+ 
+  var current = 0;
+ 
+  // caption text per card, read from the card's own headline/rating for reuse.
+  // If you want custom names per slide, add data-names / data-trek attributes
+  // to each .pkxVideoJourneyCard and this will pick them up automatically.
+  var captions = [
+    { names: 'Ana, Selvem, Dave', trek: 'Everest Base Camp Trek' },
+    { names: 'Marco, Julia',      trek: 'Annapurna Circuit Trek' },
+    { names: 'Priya, Tom, Sam',   trek: 'Langtang Valley Trek' }
+  ];
+ 
+  // build dots
+  cards.forEach(function(_, i){
+    var dot = document.createElement('button');
+    dot.className = 'pkxDot' + (i === 0 ? ' pkxActive' : '');
+    dot.setAttribute('aria-label', 'Go to video ' + (i + 1));
+    dot.addEventListener('click', function(){ goTo(i); });
+    dotsWrap.appendChild(dot);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.pkxDot'));
+ 
+  function updateCaption(i){
+    var c = cards[i];
+    var names = c.getAttribute('data-names');
+    var trek  = c.getAttribute('data-trek');
+    if(!names || !trek){
+      var fallback = captions[i] || captions[0];
+      names = names || fallback.names;
+      trek  = trek  || fallback.trek;
+    }
+    captionArea.querySelector('.pkxNames').textContent = names;
+    captionArea.querySelector('.pkxTrekName').textContent = trek;
+  }
+ 
+  function goTo(index){
+    current = (index + cards.length) % cards.length;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach(function(d, i){ d.classList.toggle('pkxActive', i === current); });
+    updateCaption(current);
+  }
+ 
+  prevBtn.addEventListener('click', function(){ goTo(current - 1); });
+  nextBtn.addEventListener('click', function(){ goTo(current + 1); });
+ 
+  // open modal on card click (but not while dragging, if you add drag later)
+  cards.forEach(function(card){
+    card.addEventListener('click', function(){
+      var videoUrl = card.getAttribute('data-video');
+      if(!videoUrl) return;
+      var separator = videoUrl.indexOf('?') > -1 ? '&' : '?';
+      var iframe = document.createElement('iframe');
+      iframe.src = videoUrl + separator + 'autoplay=1&rel=0';
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      iframe.setAttribute('allowfullscreen', '');
+      frameHolder.innerHTML = '';
+      frameHolder.appendChild(iframe);
+      modal.classList.add('pkxOpen');
+    });
+  });
+ 
+  function closeModal(){
+    modal.classList.remove('pkxOpen');
+    frameHolder.innerHTML = ''; // stop playback
+  }
+ 
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){
+    if(e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeModal();
+  });
+ 
+  // keyboard arrows for slider when focused
+  document.getElementById('pkxSliderWrap').addEventListener('keydown', function(e){
+    if(e.key === 'ArrowLeft') goTo(current - 1);
+    if(e.key === 'ArrowRight') goTo(current + 1);
+  });
+ 
+  // init
+  updateCaption(0);
+})();
+</script>
 
 
 </body>

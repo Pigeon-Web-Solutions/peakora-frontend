@@ -4133,18 +4133,21 @@ border: 1px solid #d6eafd!important;
     }
     .ebc-trek-info h2 {
       color: #2f6f9e;
-      font-size: 24px;
+      font-size: 20px;
       margin-top: 20px;
+      font-weight: 500;
     }
     .ebc-trek-info h3 {
       color: #2f6f9e;
-      font-size: 20px;
+      font-size: 18px;
       margin-top: 20px;
+      font-weight: 500;
     }
     .ebc-trek-info h4 {
       color: #333333;
-      font-size: 17px;
+      font-size: 16px;
       margin-top: 20px;
+      font-weight: 500;
     }
     .ebc-trek-info em {
       font-style: italic;
@@ -4215,3 +4218,294 @@ border: 1px solid #d6eafd!important;
       background-color: #ffffff;
     }
  
+
+
+    
+.pkxReviewSection{
+  --pkx-blue:#014c8f;
+  --pkx-blue-dark:#013a6e;
+  --pkx-gold:#f5a623;
+  font-family:'Segoe UI',Arial,Helvetica,sans-serif;
+  box-sizing:border-box;
+}
+.pkxReviewSection *{box-sizing:border-box;}
+ 
+.pkxReviewHeader{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:22px;
+}
+.pkxReviewHeaderIcon{
+  width:40px;
+  height:40px;
+  min-width:40px;
+  border-radius:50%;
+  background:var(--pkx-blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+}
+.pkxReviewHeaderIcon svg{width:25px;height:25px;fill:#fff;}
+.pkxReviewHeader h2{
+  font-weight:600;
+}
+ 
+/* ---------- Slider shell ---------- */
+.pkxSliderWrap{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 6px 24px rgba(1,76,143,0.15);
+  background:#000;
+}
+.pkxSliderTrack{
+  display:flex;
+  transition:transform .5s cubic-bezier(.4,0,.2,1);
+  will-change:transform;
+}
+ 
+/* ---------- Card ---------- */
+.pkxVideoJourneyCard{
+  min-width:100%;
+  position:relative;
+  aspect-ratio:16/9;
+  cursor:pointer;
+  overflow:hidden;
+  background:#000;
+}
+.pkxVideoJourneyCard img.pkxThumb{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(0.62);
+  transition:transform .6s ease;
+}
+.pkxVideoJourneyCard:hover img.pkxThumb{transform:scale(1.05);}
+ 
+.pkxCardOverlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:24px;
+  background:linear-gradient(180deg, rgba(1,20,40,.35) 0%, rgba(1,20,40,.15) 40%, rgba(1,20,40,.65) 100%);
+}
+ 
+.pkxStars{
+  color:var(--pkx-gold);
+  font-size:18px;
+  letter-spacing:4px;
+  margin-bottom:10px;
+  text-shadow:0 2px 6px rgba(0,0,0,.5);
+}
+.pkxEyebrow{
+  color:#fff;
+  font-size:15px;
+  letter-spacing:6px;
+  font-weight:500;
+  margin-bottom:14px;
+  text-shadow:0 2px 6px rgba(0,0,0,.5);
+}
+.pkxHeadline{
+  color:#fff;
+  line-height:1;
+  margin-bottom:6px;
+  text-shadow:0 3px 10px rgba(0,0,0,.6);
+}
+.pkxHeadline .pkxScript{
+  display:block;
+  font-family:'Brush Script MT', cursive;
+  color:var(--pkx-gold);
+  font-size:clamp(20px,4vw,32px);
+  margin-bottom:-6px;
+}
+.pkxHeadline .pkxMain{
+  display:block;
+  font-weight:800;
+  font-size:clamp(26px,6vw,52px);
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+ 
+.pkxLogoTag{
+  position:absolute;
+  top:16px;
+  right:18px;
+  color:#fff;
+  font-size:11px;
+  text-align:right;
+  line-height:1.3;
+  opacity:.9;
+  text-shadow:0 2px 6px rgba(0,0,0,.6);
+}
+.pkxLogoTag strong{display:block;font-size:13px;letter-spacing:1px;}
+ 
+.pkxRatingLine{
+  position:absolute;
+  bottom:14px;
+  left:0;
+  right:0;
+  text-align:center;
+  color:#eee;
+  font-size:12.5px;
+  padding:0 20px;
+  text-shadow:0 2px 6px rgba(0,0,0,.6);
+}
+ 
+.pkxPlayBtn{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.92);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:10px 0 16px;
+  box-shadow:0 4px 18px rgba(0,0,0,.4);
+  transition:transform .25s ease, background .25s ease;
+}
+.pkxVideoJourneyCard:hover .pkxPlayBtn{
+  transform:scale(1.1);
+  background:var(--pkx-blue);
+}
+.pkxPlayBtn svg{
+  width:22px;
+  height:22px;
+  fill:var(--pkx-blue);
+  margin-left:4px;
+  transition:fill .25s ease;
+}
+.pkxVideoJourneyCard:hover .pkxPlayBtn svg{fill:#fff;}
+ 
+/* ---------- Caption below image ---------- */
+.pkxCardCaption{
+  background:#fff;
+  padding:16px 20px 20px;
+  text-align:center;
+}
+.pkxCardCaption .pkxNames{
+  font-weight:700;
+  color:#1a1a1a;
+  font-size:16px;
+}
+.pkxCardCaption .pkxTrekName{
+  color:#014c8f;
+  font-size:14px;
+  font-weight:600;
+}
+ 
+/* ---------- Arrows ---------- */
+.pkxArrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,0.2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:5;
+  transition:background .2s ease, transform .2s ease;
+}
+.pkxArrow:hover{background:var(--pkx-blue-dark);transform:translateY(-50%) scale(1.08);}
+.pkxArrow svg{width:18px;height:18px;fill:#000;}
+.pkxArrowPrev{left:14px;}
+.pkxArrowNext{right:14px;}
+ 
+/* ---------- Dots ---------- */
+.pkxDots{
+  display:none;
+  justify-content:center;
+  gap:8px;
+  margin-top:16px;
+}
+.pkxDot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#cfd8e3;
+  border:none;
+  cursor:pointer;
+  padding:0;
+  transition:background .2s ease, transform .2s ease;
+}
+.pkxDot.pkxActive{background:var(--pkx-blue);transform:scale(1.2);}
+ 
+/* ---------- Modal ---------- */
+.pkxVideoModal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  z-index:9999;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.pkxVideoModal.pkxOpen{display:flex;}
+.pkxModalInner{
+  position:relative;
+  width:100%;
+  max-width:960px;
+}
+.pkxModalCloseBtn{
+  position:absolute;
+  top:-44px;
+  right:0;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  border:none;
+  background:var(--pkx-blue);
+  color:#fff;
+  font-size:20px;
+  line-height:1;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.pkxModalCloseBtn:hover{background:var(--pkx-blue-dark);}
+.pkxVideoFrameHolder{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+}
+.pkxVideoFrameHolder iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+ 
+/* ---------- Responsive ---------- */
+@media (max-width:600px){
+  .pkxReviewHeader h2{font-size:22px;}
+  .pkxPlayBtn{width:42px;height:42px;}
+  .pkxPlayBtn svg{width:18px;height:18px;}
+  .pkxArrow{width:36px;height:36px;}
+  .pkxArrowPrev{left:8px;}
+  .pkxArrowNext{right:8px;}
+  .pkxEyebrow{letter-spacing:3px;font-size:12px;}
+  .pkxLogoTag{font-size:9px;top:10px;right:12px;}
+  .pkxCardCaption .pkxNames{font-size:14px;}
+}
+
+
+
