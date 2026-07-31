@@ -4509,3 +4509,205 @@ border: 1px solid #d6eafd!important;
 
 
 
+
+  .ebcfaq-page {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 40px 24px 80px;
+    color: #1c2b39;
+  }
+ 
+  .ebcfaq-heading {
+    max-width: 1400px;
+    margin: 0 auto 28px;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+  }
+ 
+  .ebcfaq-body {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+  }
+ 
+  /* ---------------- Sidebar ---------------- */
+ 
+  .ebcfaq-sidebar {
+    flex: 0 0 300px;
+    position: sticky;
+    top: 24px;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    background: #eef3f8;
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid #dde6ee;
+  }
+ 
+  .ebcfaq-sidebar::-webkit-scrollbar { width: 6px; }
+  .ebcfaq-sidebar::-webkit-scrollbar-thumb { background: #c3d2df; border-radius: 4px; }
+ 
+  .ebcfaq-tab {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #33475b;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+ 
+  .ebcfaq-tab:hover { background: #e0eaf3; }
+ 
+  .ebcfaq-tab-icon {
+    flex: 0 0 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    line-height: 1;
+  }
+ 
+  .ebcfaq-tab.ebcfaq-tab-active {
+    background: #4a90c4;
+    color: #ffffff;
+  }
+ 
+  /* ---------------- Content column ---------------- */
+ 
+  .ebcfaq-content {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+ 
+  .ebcfaq-section {
+    scroll-margin-top: 24px;
+  }
+ 
+  .ebcfaq-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #eef3f8;
+    border: 1px solid #dde6ee;
+    border-radius: 8px 8px 0 0;
+    padding: 18px 22px;
+  }
+ 
+  .ebcfaq-section-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 800;
+    color: #4a90c4;
+  }
+ 
+  .ebcfaq-expand-all {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1c2b39;
+    text-decoration: underline;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+ 
+  .ebcfaq-items {
+    border: 1px solid #dde6ee;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+  }
+ 
+  .ebcfaq-item {
+    border-top: 1px solid #dde6ee;
+    background: #ffffff;
+  }
+ 
+  .ebcfaq-item:first-child { border-top: none; }
+ 
+  .ebcfaq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 22px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15.5px;
+    color: #1c2b39;
+  }
+ 
+  .ebcfaq-chevron {
+    flex: 0 0 auto;
+    transition: transform 0.2s ease;
+    color: #33475b;
+  }
+ 
+  .ebcfaq-item.ebcfaq-item-open .ebcfaq-chevron {
+    transform: rotate(180deg);
+  }
+ 
+  .ebcfaq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease, padding 0.25s ease;
+    padding: 0 22px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #45566a;
+  }
+ 
+  .ebcfaq-item.ebcfaq-item-open .ebcfaq-answer {
+    max-height: 600px;
+    padding: 0 22px 20px;
+  }
+ 
+  /* ---------------- Responsive ---------------- */
+ 
+  @media (max-width: 860px) {
+    .ebcfaq-body {
+      flex-direction: column;
+    }
+ 
+    .ebcfaq-sidebar {
+      position: static;
+      max-height: none;
+      width: 100%;
+      flex: 1 1 auto;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 4px;
+    }
+ 
+    .ebcfaq-tab {
+      flex: 0 0 auto;
+    }
+ 
+    .ebcfaq-heading {
+      font-size: 26px;
+    }
+  }
+ 
+  @media (max-width: 480px) {
+    .ebcfaq-page { padding: 24px 12px 60px; }
+    .ebcfaq-section-title { font-size: 20px; }
+    .ebcfaq-question { font-size: 14.5px; padding: 14px 16px; }
+    .ebcfaq-section-header { padding: 14px 16px; }
+  }
+
+
+  
