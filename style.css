@@ -4723,4 +4723,52 @@ border: 1px solid #d6eafd!important;
   }
 
 
+  @media (max-width: 768px) {
+    .ebcfaq-tab {
+    margin-bottom: 0px;
+    gap: 5px;
+    padding: 4px 6px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 13px;
+    color: #33475b;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+   }
+   .ebcfaq-sidebar {
+    gap: 5px;
+    padding: 5px;
+    overflow-x: auto;
+
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #014c8f #e9ecef;
+}
+
+/* Width/height of scrollbar */
+.ebcfaq-sidebar::-webkit-scrollbar {
+    height: 4px; /* Horizontal scrollbar thickness */
+}
+
+/* Track */
+.ebcfaq-sidebar::-webkit-scrollbar-track {
+    background: #e9ecef;
+    border-radius: 20px;
+}
+
+/* Thumb */
+.ebcfaq-sidebar::-webkit-scrollbar-thumb {
+    background: #014c8f;
+    border-radius: 20px;
+}
+
+/* Hover effect */
+.ebcfaq-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #014c8f;
+}
+}
   
