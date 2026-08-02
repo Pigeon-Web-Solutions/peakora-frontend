@@ -4554,11 +4554,11 @@ border: 1px solid #d6eafd!important;
   .ebcfaq-tab {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 13px 14px;
+    gap: 10px;
+    padding: 8px 14px;
     border-radius: 8px;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 18px;
     color: #33475b;
     cursor: pointer;
     user-select: none;
@@ -4570,6 +4570,13 @@ border: 1px solid #d6eafd!important;
  
   .ebcfaq-tab:hover { background: #e0eaf3; }
  
+  .ebcfaq-tab{
+    margin-bottom: 12px;
+  }
+  .ebcfaq-tab:nth-child(last){
+    margin-bottom: 0px;
+  }
+
   .ebcfaq-tab-icon {
     flex: 0 0 20px;
     display: inline-flex;
@@ -4580,8 +4587,12 @@ border: 1px solid #d6eafd!important;
   }
  
   .ebcfaq-tab.ebcfaq-tab-active {
-    background: #4a90c4;
+    background: #014c8f;
     color: #ffffff;
+  }
+
+   .ebcfaq-tab.ebcfaq-tab-active .ebcfaq-tab-icon img {
+    filter: brightness(0) invert(1);
   }
  
   /* ---------------- Content column ---------------- */
@@ -4605,19 +4616,19 @@ border: 1px solid #d6eafd!important;
     background: #eef3f8;
     border: 1px solid #dde6ee;
     border-radius: 8px 8px 0 0;
-    padding: 18px 22px;
+    padding: 15px 22px;
   }
  
   .ebcfaq-section-title {
     margin: 0;
     font-size: 24px;
-    font-weight: 800;
-    color: #4a90c4;
+    font-weight: 600;
+    color: #014c8f;
   }
  
   .ebcfaq-expand-all {
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
     color: #1c2b39;
     text-decoration: underline;
     cursor: pointer;
@@ -4643,17 +4654,18 @@ border: 1px solid #d6eafd!important;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding: 16px 22px;
+    padding: 15px 22px;
     cursor: pointer;
-    font-weight: 700;
-    font-size: 15.5px;
-    color: #1c2b39;
+    font-weight: 600;
+    font-size: 18px;
+    color: #0e1318;
   }
  
   .ebcfaq-chevron {
     flex: 0 0 auto;
     transition: transform 0.2s ease;
-    color: #33475b;
+    color: #0e1318;
+    font-size: 24px;
   }
  
   .ebcfaq-item.ebcfaq-item-open .ebcfaq-chevron {
@@ -4665,9 +4677,10 @@ border: 1px solid #d6eafd!important;
     overflow: hidden;
     transition: max-height 0.25s ease, padding 0.25s ease;
     padding: 0 22px;
-    font-size: 14.5px;
+    font-size: 16px;
     line-height: 1.65;
-    color: #45566a;
+    color: #4a4d50;
+    font-weight: 500;
   }
  
   .ebcfaq-item.ebcfaq-item-open .ebcfaq-answer {
