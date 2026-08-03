@@ -36,6 +36,9 @@
     <!-- LightGallery CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.8.3/css/lightgallery-bundle.min.css" />
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+
 </head>
 
 <body class="tt-magic-cursor">
@@ -1651,41 +1654,255 @@
                             </div>
                         </div>
                          
-                        <div class="ebc-widget">
-                         
-                          <div class="ebc-header">
-                            <div class="ebc-icon">
-                              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3 17l5-6 4 4 5-8 4 5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                              </svg>
+                        <div class="chat_section">
+                            <div class="card">
+                                <div class="header">
+                                    <div class="header-icon">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+                                        </svg>
+                                    </div>
+                                    <h2 class="header-title">Annapurna Circuit Trek Temperature Chart</h2>
+                                </div>
+                        
+                                <div class="tabs">
+                                    <button id="tab-daily" class="tab-btn tab-active" onclick="switchTab('daily')">
+                                        Daily Temperature Variation
+                                    </button>
+                                    <button id="tab-average" class="tab-btn tab-inactive" onclick="switchTab('average')">
+                                        Average Temperature (Month to Month)
+                                    </button>
+                                </div>
+                        
+                                <div class="chart-toolbar">
+                                    <h3 id="chart-title" class="chart-title">January</h3>
+                                    <div class="unit-toggle">
+                                        Temperature in:
+                                        <span id="unit-c" class="unit-active" onclick="switchUnit('C')">CELSIUS</span>
+                                        |
+                                        <span id="unit-f" class="unit-inactive" onclick="switchUnit('F')">FAHRENHEIT</span>
+                                    </div>
+                                </div>
+                        
+                                <div class="chart-frame">
+                                    <div id="chart-scroll" class="chart-scroll">
+                                        <div id="chart-inner" class="chart-inner" style="min-width: 100%">
+                                            <canvas id="temperatureChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div id="pagination-dots" class="pagination-dots"></div>
                             </div>
-                            <h1 class="ebc-title">Everest Base Camp Trek Temperature Chart</h1>
-                          </div>
-                         
-                          <div class="ebc-tabs">
-                            <button class="ebc-tab active" data-tab="daily">Daily Temperature Variation</button>
-                            <button class="ebc-tab" data-tab="monthly">Average Temperature (Month to Month)</button>
-                          </div>
-                         
-                          <div class="ebc-toprow">
-                            <div class="ebc-month-title" id="ebcMonthTitle">January</div>
-                            <div class="ebc-unit-toggle">
-                              Temperature in:
-                              <button class="ebc-unit active" data-unit="C">Celsius</button>
-                              <span class="ebc-sep">|</span>
-                              <button class="ebc-unit" data-unit="F">Fahrenheit</button>
-                            </div>
-                          </div>
-                         
-                          <div class="ebc-chart-panel">
-                            <div class="ebc-chart-scroll" id="ebcChartScroll">
-                              <img class="ebc-chart-image" id="ebcChartImage" src="" alt="Temperature chart">
-                            </div>
-                          </div>
-                         
-                          <div class="ebc-dots" id="ebcDots"></div>
-                         
                         </div>
+
+                        <script>
+                            // --- Data Definitions ---
+                            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                     
+                            // Average Data (Jan - Aug filled from image, Sep - Dec extrapolated for completeness)
+                            const averageDataC = {
+                                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                                max: [20, 22, 25, 28, 29, 30, 29, 29, 28, 24, 22, 20],
+                                min: [-24, -21, -15, -12, -9, -7, -5, -5, -8, -12, -18, -22]
+                            };
+                     
+                            // Daily Data mapped to the 12 months (January filled from image, others use dummy scaling for demo)
+                            // Extended through Day 14 to cover the full itinerary including the pass crossing and descent.
+                            const dailyDataCMaster = {
+                                labels: [
+                                    "Day 1 (845 m)", "Day 2 (1300 m)", "Day 3 (1860 m)", "Day 4 (2710 m)",
+                                    "Day 5 (3300 m)", "Day 6 (3540 m)", "Day 7 (3540 m)", "Day 8 (4210 m)",
+                                    "Day 9 (4920 m)", "Day 10 (5416 m)", "Day 11 (3800 m)", "Day 12 (2700 m)",
+                                    "Day 13 (2010 m)", "Day 14 (1070 m)"
+                                ],
+                                januaryMax: [14, 12, 6, 4, 3, 0, 0, -3, -5, -10, 5, 10, 12, 15],
+                                januaryMin: [3, 1, -4, -7, -10, -14, -14, -17, -20, -25, -8, -3, 0, 3]
+                            };
+                     
+                            // --- State Variables ---
+                            let currentTab = 'daily'; // 'daily' or 'average'
+                            let currentUnit = 'C'; // 'C' or 'F'
+                            let currentMonthIndex = 0; // 0 to 11 (Jan to Dec)
+                            let chartInstance = null;
+                     
+                            // Register Chart.js plugin
+                            Chart.register(ChartDataLabels);
+                     
+                            // --- Helper Functions ---
+                            const cToF = (c) => Math.round((c * 9/5) + 32);
+                            const convertArray = (arr, toUnit) => toUnit === 'F' ? arr.map(cToF) : arr;
+                     
+                            function getChartData() {
+                                let labels, maxData, minData;
+                     
+                                if (currentTab === 'average') {
+                                    labels = averageDataC.labels;
+                                    maxData = convertArray(averageDataC.max, currentUnit);
+                                    minData = convertArray(averageDataC.min, currentUnit);
+                                } else {
+                                    labels = dailyDataCMaster.labels;
+                                    // For demonstration, offsetting other months slightly based on January data
+                                    const offset = currentMonthIndex * 2;
+                                    maxData = convertArray(dailyDataCMaster.januaryMax.map(v => v + offset), currentUnit);
+                                    minData = convertArray(dailyDataCMaster.januaryMin.map(v => v + offset), currentUnit);
+                                }
+                     
+                                return { labels, maxData, minData };
+                            }
+                     
+                            // Set the inner scroll width based on how many points need to be shown,
+                            // so the chart only scrolls when it actually needs to.
+                            function updateScrollWidth(pointCount) {
+                                const scrollContainer = document.getElementById('chart-scroll');
+                                const inner = document.getElementById('chart-inner');
+                                const pxPerPoint = 90; // comfortable spacing per data point
+                                const rightBuffer = 50; // extra space so the last day's label isn't cropped
+                                const neededWidth = (pointCount * pxPerPoint) + rightBuffer;
+                                const containerWidth = scrollContainer.clientWidth;
+                     
+                                inner.style.width = Math.max(neededWidth, containerWidth) + 'px';
+                            }
+                     
+                            // --- Chart Initialization and Updating ---
+                            function renderChart() {
+                                const ctx = document.getElementById('temperatureChart').getContext('2d');
+                                const dataState = getChartData();
+                     
+                                updateScrollWidth(dataState.labels.length);
+                     
+                                if (chartInstance) {
+                                    chartInstance.destroy();
+                                }
+                     
+                                chartInstance = new Chart(ctx, {
+                                    type: 'line',
+                                    data: {
+                                        labels: dataState.labels,
+                                        datasets: [{
+                                            data: dataState.maxData, // Plot line based on max temp (as shown in images)
+                                            borderColor: '#4ba3ff',
+                                            backgroundColor: '#4ba3ff',
+                                            borderWidth: 2,
+                                            pointRadius: 4,
+                                            pointBackgroundColor: '#4ba3ff',
+                                            tension: 0.4
+                                        }]
+                                    },
+                                    options: {
+                                        responsive: true,
+                                        maintainAspectRatio: false,
+                                        plugins: {
+                                            legend: { display: false },
+                                            tooltip: { enabled: false }, // Using custom data labels instead
+                                            datalabels: {
+                                                align: 'top',
+                                                anchor: 'end',
+                                                backgroundColor: '#5eaaff',
+                                                borderRadius: 6,
+                                                color: 'white',
+                                                font: { weight: 'bold', size: 11 },
+                                                padding: { top: 8, bottom: 8, left: 10, right: 10 },
+                                                formatter: function(value, context) {
+                                                    const index = context.dataIndex;
+                                                    const min = dataState.minData[index];
+                                                    const max = dataState.maxData[index];
+                                                    const symbol = currentUnit === 'C' ? 'C' : 'F';
+                                                    return `Min ${min}° ${symbol}\nMax ${max}° ${symbol}`;
+                                                },
+                                                textAlign: 'center'
+                                            }
+                                        },
+                                        scales: {
+                                            y: {
+                                                grid: { color: '#f3f4f6' },
+                                                ticks: {
+                                                    callback: function(value) { return value + '°' + (currentUnit === 'C' ? 'C' : 'F'); },
+                                                    stepSize: currentUnit === 'F' ? 5 : 2
+                                                },
+                                                suggestedMax: Math.max(...dataState.maxData) + (currentUnit === 'F' ? 10 : 5),
+                                                suggestedMin: Math.min(...dataState.maxData) - (currentUnit === 'F' ? 10 : 5)
+                                            },
+                                            x: {
+                                                grid: { display: false },
+                                                ticks: {
+                                                    maxRotation: 35,
+                                                    minRotation: 35,
+                                                    font: { size: 11 }
+                                                }
+                                            }
+                                        },
+                                        layout: { padding: { top: 40, right: 30 } }
+                                    }
+                                });
+                            }
+                     
+                            // --- Interaction Logic ---
+                            function switchUnit(unit) {
+                                currentUnit = unit;
+                                document.getElementById('unit-c').className = unit === 'C' ? 'unit-active' : 'unit-inactive';
+                                document.getElementById('unit-f').className = unit === 'F' ? 'unit-active' : 'unit-inactive';
+                                renderChart();
+                            }
+                     
+                            function switchTab(tab) {
+                                currentTab = tab;
+                     
+                                // Update Tab UI
+                                const tabDaily = document.getElementById('tab-daily');
+                                const tabAverage = document.getElementById('tab-average');
+                     
+                                if (tab === 'daily') {
+                                    tabDaily.className = "tab-btn tab-active";
+                                    tabAverage.className = "tab-btn tab-inactive";
+                                    document.getElementById('pagination-dots').style.display = 'flex';
+                                    updateMonthTitle();
+                                } else {
+                                    tabAverage.className = "tab-btn tab-active";
+                                    tabDaily.className = "tab-btn tab-inactive";
+                                    document.getElementById('pagination-dots').style.display = 'none';
+                                    document.getElementById('chart-title').innerText = "Average by calendar month";
+                                }
+                                renderChart();
+                            }
+                     
+                            function selectMonth(index) {
+                                currentMonthIndex = index;
+                                updateMonthTitle();
+                                renderDots();
+                                if (currentTab === 'daily') {
+                                    renderChart();
+                                }
+                            }
+                     
+                            function updateMonthTitle() {
+                                if (currentTab === 'daily') {
+                                    document.getElementById('chart-title').innerText = months[currentMonthIndex];
+                                }
+                            }
+                     
+                            function renderDots() {
+                                const dotsContainer = document.getElementById('pagination-dots');
+                                dotsContainer.innerHTML = '';
+                                for (let i = 0; i < 12; i++) {
+                                    const dot = document.createElement('button');
+                                    dot.onclick = () => selectMonth(i);
+                                    dot.title = months[i];
+                                    dot.className = `dot ${i === currentMonthIndex ? 'dot-active' : 'dot-inactive'}`;
+                                    dotsContainer.appendChild(dot);
+                                }
+                            }
+                     
+                            // Recalculate scroll width / re-render on window resize so the chart
+                            // still fills the container correctly when it doesn't need to scroll.
+                            window.addEventListener('resize', renderChart);
+                     
+                            // --- Initial Load ---
+                            renderDots();
+                            renderChart();
+                        </script>
+
 
                         <div class="highlights-tour-area mb-30 mapSection map_equipment">
                             <div class="highlights-wrap wraptophead warptoptype2">
