@@ -1638,34 +1638,178 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="highlights-tour-area mb-30 mapSection chartSec">
-                            <div class="highlights-wrap wraptophead warptoptype2">
-                                <div class="topmapSec">
-                                    <h4 class="titlecolorcustom"><img src="assets/img/chart-up.png" alt="Icon" class="staricn nobgicon">Everest Base Camp Trek Altitude Chart</h4>
-                                    <a href="#" class="pkx_download_pdf_btn">
-                                      <i class="bi bi-download"></i>
-                                       Download Chart
-                                    </a>
+                        
+                        <div class="ebc-wrap mb-4">
+                            <div class="ebc-card">
+                     
+                                <div class="highlights-wrap wraptophead warptoptype2">
+                                <h4 class="titlecolorcustom">
+                                    <img src="assets/img/line-chart.png" alt="Icon" class="staricn nobgicon">Everest Base Camp Trek Altitude Chart
+                                </h4>
                                 </div>
-                                
-                                <div class="imagesec">
-                                     <img src="assets/img/chart1.jpeg" alt="">
+                     
+                                <div class="ebc-toolbar">
+                                    <span class="ebc-toolbar-label">Altitude in:</span>
+                                    <span id="ebc-unit-m" class="ebc-unit-active" onclick="ebcSwitchUnit('m')">METER</span>
+                                    <span>|</span>
+                                    <span id="ebc-unit-ft" class="ebc-unit-inactive" onclick="ebcSwitchUnit('ft')">FEET</span>
+                                </div>
+                     
+                                <div class="ebc-chart-frame">
+                                    <div id="ebc-chart-scroll" class="ebc-chart-scroll">
+                                        <div id="ebc-chart-inner" class="ebc-chart-inner" style="min-width: 100%;">
+                                            <canvas id="ebcAltitudeChart"></canvas>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                     
+                        <script>
+                            // --- Data: Everest Base Camp trek itinerary, Day 1 through Day 14 ---
+                            const ebcAltitudeData = [
+                                { day: 'Day 1',  place: 'Kathmandu',      m: 1400 },
+                                { day: 'Day 1',  place: 'Lukla',          m: 2860 },
+                                { day: 'Day 1',  place: 'Phakding',       m: 2650 },
+                                { day: 'Day 2',  place: 'Namche Bazaar',  m: 3440 },
+                                { day: 'Day 3',  place: 'Namche Bazaar',  m: 3440 },
+                                { day: 'Day 4',  place: 'Tengboche',      m: 3855 },
+                                { day: 'Day 5',  place: 'Dingboche',      m: 4360 },
+                                { day: 'Day 6',  place: 'Dingboche',      m: 4360 },
+                                { day: 'Day 7',  place: 'Lobuche',        m: 4930 },
+                                { day: 'Day 8',  place: 'EBC',            m: 5364 },
+                                { day: 'Day 8',  place: 'Gorak Shep',     m: 5185 },
+                                { day: 'Day 9',  place: 'Kala Patthar',   m: 5555 },
+                                { day: 'Day 9',  place: 'Pheriche',       m: 4250 },
+                                { day: 'Day 10', place: 'Tengboche',      m: 3855 },
+                                { day: 'Day 11', place: 'Namche Bazaar',  m: 3440 },
+                                { day: 'Day 12', place: 'Lukla',          m: 2860 },
+                                { day: 'Day 13', place: 'Kathmandu',      m: 1400 },
+                                { day: 'Day 14', place: 'Kathmandu',      m: 1400 }
+                            ];
+                     
+                            let ebcCurrentUnit = 'm'; // 'm' or 'ft'
+                            let ebcChartInstance = null;
+                     
+                            Chart.register(ChartDataLabels);
+                     
+                            const ebcMetersToFeet = (m) => Math.round(m * 3.28084);
+                     
+                            function ebcGetValues() {
+                                return ebcAltitudeData.map(d => ebcCurrentUnit === 'ft' ? ebcMetersToFeet(d.m) : d.m);
+                            }
+                     
+                            // Extra space is reserved on both sides so the first and last point's
+                            // rotated labels always sit fully inside the visible/scrollable area.
+                            const EBC_PX_PER_POINT = 85;
+                            const EBC_LEFT_BUFFER = 50;
+                            const EBC_RIGHT_BUFFER = 60;
+                     
+                            function ebcUpdateScrollWidth(pointCount) {
+                                const scrollContainer = document.getElementById('ebc-chart-scroll');
+                                const inner = document.getElementById('ebc-chart-inner');
+                                const neededWidth = EBC_LEFT_BUFFER + (pointCount * EBC_PX_PER_POINT) + EBC_RIGHT_BUFFER;
+                                const containerWidth = scrollContainer.clientWidth;
+                     
+                                inner.style.width = Math.max(neededWidth, containerWidth) + 'px';
+                            }
+                     
+                            function ebcRenderChart() {
+                                const ctx = document.getElementById('ebcAltitudeChart').getContext('2d');
+                                const labels = ebcAltitudeData.map(d => d.day);
+                                const values = ebcGetValues();
+                                const unitLabel = ebcCurrentUnit === 'ft' ? 'ft' : 'm';
+                     
+                                ebcUpdateScrollWidth(labels.length);
+                     
+                                if (ebcChartInstance) {
+                                    ebcChartInstance.destroy();
+                                }
+                     
+                                ebcChartInstance = new Chart(ctx, {
+                                    type: 'line',
+                                    data: {
+                                        labels: labels,
+                                        datasets: [{
+                                            data: values,
+                                            borderColor: '#9ca3af',
+                                            borderWidth: 1.5,
+                                            backgroundColor: 'rgba(147, 197, 253, 0.18)',
+                                            fill: true,
+                                            pointRadius: 5,
+                                            pointBackgroundColor: '#2563eb',
+                                            pointBorderColor: '#2563eb',
+                                            tension: 0.3
+                                        }]
+                                    },
+                                    options: {
+                                        responsive: true,
+                                        maintainAspectRatio: false,
+                                        plugins: {
+                                            legend: { display: false },
+                                            tooltip: { enabled: false },
+                                            datalabels: {
+                                                align: 'top',
+                                                anchor: 'end',
+                                                offset: 10,
+                                                rotation: -20,
+                                                backgroundColor: 'transparent',
+                                                color: '#4b5563',
+                                                font: { size: 11 },
+                                                textAlign: 'left',
+                                                formatter: function(value, context) {
+                                                    const place = ebcAltitudeData[context.dataIndex].place;
+                                                    return [place, `${value.toLocaleString()} ${unitLabel}`];
+                                                }
+                                            }
+                                        },
+                                        scales: {
+                                            y: {
+                                                display: false,
+                                                suggestedMax: Math.max(...values) * 1.4,
+                                                suggestedMin: Math.min(...values) * 0.9
+                                            },
+                                            x: {
+                                                grid: { display: false },
+                                                ticks: {
+                                                    font: { size: 11 },
+                                                    color: '#6b7280'
+                                                }
+                                            }
+                                        },
+                                        layout: {
+                                            padding: {
+                                                top: 75,
+                                                left: EBC_LEFT_BUFFER,
+                                                right: EBC_RIGHT_BUFFER,
+                                                bottom: 10
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                     
+                            function ebcSwitchUnit(unit) {
+                                ebcCurrentUnit = unit;
+                                document.getElementById('ebc-unit-m').className = unit === 'm' ? 'ebc-unit-active' : 'ebc-unit-inactive';
+                                document.getElementById('ebc-unit-ft').className = unit === 'ft' ? 'ebc-unit-active' : 'ebc-unit-inactive';
+                                ebcRenderChart();
+                            }
+                     
+                            window.addEventListener('resize', ebcRenderChart);
+                     
+                            // --- Initial Load ---
+                            ebcRenderChart();
+                        </script>
                          
-                        <div class="chat_section">
+                        <div class="chat_section pt-2">
                             <div class="card">
-                                <div class="header">
-                                    <div class="header-icon">
-                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
-                                        </svg>
-                                    </div>
-                                    <h2 class="header-title">Annapurna Circuit Trek Temperature Chart</h2>
+                                <div class="highlights-wrap wraptophead warptoptype2 mb-3">
+                                <h4 class="titlecolorcustom">
+                                    <img src="assets/img/line-chart.png" alt="Icon" class="staricn nobgicon">Everest Circuit Trek Temperature Chart
+                                </h4>
                                 </div>
-                        
+
                                 <div class="tabs">
                                     <button id="tab-daily" class="tab-btn tab-active" onclick="switchTab('daily')">
                                         Daily Temperature Variation
@@ -1902,7 +2046,6 @@
                             renderDots();
                             renderChart();
                         </script>
-
 
                         <div class="highlights-tour-area mb-30 mapSection map_equipment">
                             <div class="highlights-wrap wraptophead warptoptype2">
