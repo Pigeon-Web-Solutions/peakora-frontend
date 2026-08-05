@@ -5201,3 +5201,292 @@ Touch Devices
     margin-bottom: 0.5rem;
 }
 }
+
+
+
+  /* ===== PEAKORA CTA SECTION STYLES ===== */
+
+    /* ---- Two Column Cards ---- */
+    .peakora-cta-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    /* Card: Contact Expert */
+    .peakora-contact-card {
+      background: #ffffff;
+      border: 1.5px solid #e0eaf3;
+      border-radius: 20px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      transition: all 0.3s ease;
+    }
+
+    .peakora-contact-card:hover {
+      border-color: #0f3460;
+      box-shadow: 0 8px 32px rgba(15, 52, 96, 0.09);
+      transform: translateY(-3px);
+    }
+
+    .peakora-contact-card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #0f3460, #1a5276);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 6px 18px rgba(15, 52, 96, 0.22);
+      margin-bottom: 20px;
+    }
+
+    .peakora-contact-card-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+
+    .peakora-contact-card-body h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0f3460;
+      margin: 0 0 8px 0;
+      line-height: 1.3;
+    }
+
+    .peakora-contact-card-body p {
+      font-size: 16px;
+      color: #5d6d7e;
+      line-height: 1.65;
+      margin: 0 0 18px 0;
+    }
+
+    .peakora-contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .peakora-contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #0f3460;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      line-height: 20px;
+    }
+
+    .peakora-contact-link:hover {
+      color: #0f3460;
+    }
+
+    .peakora-contact-link svg {
+      width: 16px;
+      height: 16px;
+      fill: #0f3460;
+      flex-shrink: 0;
+    }
+
+    /* Card: WhatsApp */
+    .peakora-whatsapp-card {
+      background: linear-gradient(135deg, #f0fdf8 0%, #e6faf4 100%);
+      border: 1.5px solid #b2dfdb;
+      border-radius: 20px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .peakora-whatsapp-card::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 140px;
+      height: 140px;
+      background: rgba(26, 188, 156, 0.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .peakora-whatsapp-card:hover {
+      border-color: #1abc9c;
+      box-shadow: 0 8px 32px rgba(26, 188, 156, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .peakora-whatsapp-card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.32);
+      margin-bottom: 20px;
+    }
+
+    .peakora-whatsapp-card-icon svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+    }
+
+    .peakora-whatsapp-card-body {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .peakora-whatsapp-card-body h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #0f3460;
+      margin: 0 0 8px 0;
+      line-height: 1.3;
+    }
+
+    .peakora-whatsapp-card-body p {
+      font-size: 16px;
+      color: #5d6d7e;
+      line-height: 1.65;
+      margin: 0 0 20px 0;
+    }
+
+    .peakora-btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .peakora-btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(37, 211, 102, 0.45);
+    }
+
+    .peakora-btn-whatsapp svg {
+      width: 17px;
+      height: 17px;
+      fill: white;
+      flex-shrink: 0;
+    }
+ .cta_sidebar  .peakora-whatsapp-card {
+    background: linear-gradient(135deg, #f7fffc 0%, #f4fffc 100%);
+    border: 1.5px solid #b2dfdb;
+}
+ .cta_sidebar .peakora-btn-whatsapp {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+}
+.cta_sidebar  .peakora-whatsapp-card::after {
+    background: rgba(137, 255, 231, 0.12);
+}
+    .cta_sidebar .peakora-whatsapp-card { 
+       padding: 20px;
+    }
+ .cta_sidebar .peakora-whatsapp-card-icon {
+    width: 50px;
+    height: 50px;
+}
+     .cta_sidebar .peakora-whatsapp-card-body p {
+    font-size: 16px;
+    color: #5d6d7e;
+    line-height: 1.4;
+    }
+     .cta_sidebar .peakora-btn-whatsapp {
+          padding: 6px 26px;
+     }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 768px) {
+      .peakora-cta-section {
+        padding: 0;
+      }
+      .peakora-cta-strip {
+        flex-direction: column;
+        text-align: center;
+        padding: 36px 24px;
+        gap: 28px;
+        border-radius: 16px;
+      }
+      .peakora-cta-strip-sub {
+        max-width: 100%;
+      }
+      .peakora-cta-strip-right {
+        width: 100%;
+        min-width: unset;
+      }
+      .peakora-cta-strip-badge {
+        display: inline-flex;
+      }
+      .peakora-cta-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .peakora-contact-card,
+      .peakora-whatsapp-card {
+        padding: 24px 20px;
+      }
+    }
+
+
+.sidebar-parent{
+    position: relative;
+}
+
+.sidebar_book_dsn{
+    position: relative;
+}
+
+.sidebar-sticky{
+    width:100%;
+    box-sizing:border-box;
+    transition:all .2s ease;
+}
+
+.sidebar-sticky.is-fixed{
+    position:fixed;
+    top:0;
+    z-index:999;
+    margin:0;
+    box-sizing:border-box;
+}
+
+.sidebar-sticky.is-bottom{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    top:auto;
+}
