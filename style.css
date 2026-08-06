@@ -5477,7 +5477,7 @@ Touch Devices
 
 .sidebar-sticky.is-fixed{
     position:fixed;
-    top:0;
+    top:75px;
     z-index:999;
     margin:0;
     box-sizing:border-box;
@@ -5496,5 +5496,135 @@ Touch Devices
     display: none;
   }
 }
+
+
+
+
+  /* ---- Trip Nav: scoped tokens ---- */
+  .tripnav {
+    --tn-bar-bg: #e9e8e6;
+    --tn-tab-bg: #2c2c2c;
+    --tn-tab-bg-hover: #3a3a3a;
+    --tn-tab-active-bg: #000000;
+    --tn-tab-text: #d8d8d6;
+    --tn-tab-text-active: #ffffff;
+    --tn-height: 52px;
+    --tn-radius: 4px;
+    --tn-gap: 2px;
+ 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 500;
+    background: var(--tn-bar-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+ 
+    /* hidden state by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease;
+  }
+ 
+  .tripnav.tripnav--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+ 
+  .tripnav__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+    gap: var(--tn-gap);
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0 8px;
+  }
+ 
+  .tripnav__container::-webkit-scrollbar {
+    display: none;
+  }
+ 
+  .tripnav__tab {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: var(--tn-height);
+    padding: 0 18px;
+    background: var(--tn-tab-bg);
+    color: var(--tn-tab-text);
+    border: none;
+    border-radius: 0;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.18s ease, color 0.18s ease;
+  }
+ 
+  .tripnav__tab:first-child {
+    border-top-left-radius: var(--tn-radius);
+  }
+ 
+  .tripnav__tab:hover {
+    background: var(--tn-tab-bg-hover);
+    color: var(--tn-tab-text-active);
+  }
+ 
+  .tripnav__tab:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: -3px;
+  }
+ 
+  .tripnav__tab.tripnav__tab--active {
+    background: var(--tn-tab-active-bg);
+    color: var(--tn-tab-text-active);
+  }
+ 
+  .tripnav__icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+ 
+  /* ---- Responsive ---- */
+  @media (max-width: 900px) {
+    .tripnav__tab {
+      padding: 0 14px;
+      font-size: 13px;
+    }
+  }
+ 
+@media (max-width: 640px) {
+  .tripnav {
+    --tn-height: 44px;
+  }
+  .tripnav__tab {
+    padding: 0 10px;
+    gap: 5px;
+    font-size: 10.5px;
+  }
+  .tripnav__tab span {
+    display: inline;
+    line-height: 1.1;
+  }
+  .tripnav__icon {
+    width: 15px;
+    height: 15px;
+  }
+  .tripnav__container {
+    padding: 0 6px;
+  }
+}
+
+
 
 
