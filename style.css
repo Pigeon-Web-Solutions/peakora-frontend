@@ -4861,7 +4861,7 @@ Touch Devices
   .ebcfaq-tab {
     margin-bottom: 0px;
     gap: 5px;
-    padding: 4px 6px;
+    padding: 0px 6px;
     border-radius: 8px;
     font-weight: 500;
     font-size: 13px;
@@ -5477,7 +5477,7 @@ Touch Devices
 
 .sidebar-sticky.is-fixed{
     position:fixed;
-    top:75px;
+    top:60px;
     z-index:999;
     margin:0;
     box-sizing:border-box;
@@ -5502,15 +5502,15 @@ Touch Devices
 
   /* ---- Trip Nav: scoped tokens ---- */
   .tripnav {
-    --tn-bar-bg: #e9e8e6;
+    --tn-bar-bg: #f3f5f7;
     --tn-tab-bg: #2c2c2c;
     --tn-tab-bg-hover: #3a3a3a;
     --tn-tab-active-bg: #000000;
     --tn-tab-text: #d8d8d6;
     --tn-tab-text-active: #ffffff;
-    --tn-height: 52px;
+    --tn-height: 42px;
     --tn-radius: 4px;
-    --tn-gap: 2px;
+    --tn-gap: 0px;
  
     position: fixed;
     top: 0;
@@ -5557,8 +5557,8 @@ Touch Devices
     gap: 8px;
     height: var(--tn-height);
     padding: 0 18px;
-    background: var(--tn-tab-bg);
-    color: var(--tn-tab-text);
+    background: #fff;
+    color: #222;
     border: none;
     border-radius: 0;
     font-family: inherit;
@@ -5568,6 +5568,7 @@ Touch Devices
     white-space: nowrap;
     cursor: pointer;
     transition: background-color 0.18s ease, color 0.18s ease;
+    border-left: 1px solid #ccc;
   }
  
   .tripnav__tab:first-child {
@@ -5575,8 +5576,8 @@ Touch Devices
   }
  
   .tripnav__tab:hover {
-    background: var(--tn-tab-bg-hover);
-    color: var(--tn-tab-text-active);
+     background: #000;
+    color:#fff;
   }
  
   .tripnav__tab:focus-visible {
@@ -5585,8 +5586,8 @@ Touch Devices
   }
  
   .tripnav__tab.tripnav__tab--active {
-    background: var(--tn-tab-active-bg);
-    color: var(--tn-tab-text-active);
+    background: #000;
+    color:#fff;
   }
  
   .tripnav__icon {
@@ -5605,12 +5606,12 @@ Touch Devices
  
 @media (max-width: 640px) {
   .tripnav {
-    --tn-height: 44px;
+    --tn-height: 36px;
   }
   .tripnav__tab {
     padding: 0 10px;
     gap: 5px;
-    font-size: 10.5px;
+    font-size: 14px;
   }
   .tripnav__tab span {
     display: inline;
@@ -5622,9 +5623,140 @@ Touch Devices
   }
   .tripnav__container {
     padding: 0 6px;
+    margin-left: -10px;
+  }
+   .icon_imagec {
+    height: 26px;
+    width: 26px;
+}
+  .icon_imagec img {
+    height: 20px;
+    width: 20px;
+    object-fit: contain;
+    margin-top: -6px;
+}
+.wraptophead p {
+    font-size: 15px;
+    line-height: 22px;
+}
+.package-details-page .package-details-warpper .items-list li {
+    display: grid;
+    grid-template-columns: 20px auto;
+}
+.trek_inclusions ul li .icon_imagec {
+    height: 16px !important;
+    width: 16px !important;
+}
+.trek_inclusions ul li .icon_imagec img{
+    height: 16px !important;
+    width: 16px !important;
+    object-fit: contain;
+    margin-top: 0px;
+}
+ol, ul {
+    padding-left: 1.5rem;
+}
+}
+
+
+.mobileshowbook{
+  display: none;
+}
+
+@media (max-width: 768px){
+  .mobileshowbook{
+    display: block;
   }
 }
 
 
 
+
+  .wa-booking-bar {
+    display: none; /* hidden by default, shown only below 768px */
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999999;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.12);
+    padding: 7px 12px;
+    width: 100%;
+  }
+ 
+  .wa-booking-bar__left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+ 
+  .wa-booking-bar__whatsapp-icon {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    background-color: #039138;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+  .wa-booking-bar__whatsapp-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+  }
+ 
+  .wa-booking-bar__price-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    white-space: nowrap;
+  }
+ 
+  .wa-booking-bar__price-label {
+    font-size: 15px;
+    color: #4a4a4a;
+    font-weight: 400;
+  }
+ 
+  .wa-booking-bar__price-amount {
+    font-size: 19px;
+    color: #1a1a1a;
+    font-weight: 700;
+  }
+ 
+  .wa-booking-bar__price-per {
+    font-size: 13px;
+    color: #6b6b6b;
+    font-weight: 400;
+  }
+ 
+  .wa-booking-bar__book-btn {
+    background-color: #ffffff;
+    color: #039138;
+    border: 1px solid #039138;
+    border-radius: 4px;
+    padding: 0px 14px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+ 
+  .wa-booking-bar__book-btn:hover {
+    background-color: #039138;
+    color: #ffffff;
+  }
+ 
+  /* Show the bar only on small screens (below 768px) */
+  @media (max-width: 767px) {
+    .wa-booking-bar {
+      display: flex;
+    }
+  }
 
