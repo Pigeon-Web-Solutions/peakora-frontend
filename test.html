@@ -1,16 +1,33 @@
-<!DOCTYPE html>
-<html>
-<body>
+<div class="enquiry-box">
+    <h3 class="enquiry-title">Enquire Us</h3>
 
-<iframe
-width="800"
-height="450"
-src="https://www.youtube.com/embed/M7lc1UVf-VE"
-title="YouTube video player"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen>
-</iframe>
+    <!-- Name + Phone -->
+    <div class="enquiry-row">
+        <div class="enquiry-field">
+            <label class="enquiry-label" for="enquiry-name"> Name </label>
+            <input type="text" id="enquiry-name" name="name" class="enquiry-input" placeholder="" />
+        </div>
 
-</body>
-</html>
+        <div class="enquiry-field">
+            <label class="enquiry-label" for="enquiry-phone"> Phone </label>
+            <input type="tel" id="enquiry-phone" name="phone" class="enquiry-input" placeholder="" />
+        </div>
+    </div>
+
+    <!-- Email -->
+    <div class="enquiry-field">
+        <label class="enquiry-label" for="enquiry-email"> Email </label>
+
+        <input type="email" id="enquiry-email" name="email" class="enquiry-input" placeholder="" />
+    </div>
+
+    <!-- Message -->
+    <div class="enquiry-field">
+        <label class="enquiry-label" for="enquiry-message"> Message </label>
+
+        <textarea id="enquiry-message" name="message" class="enquiry-textarea" placeholder=""></textarea>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="enquiry-submit">Submit Enquiry</button>
+</div>
