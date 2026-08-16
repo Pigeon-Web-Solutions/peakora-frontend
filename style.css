@@ -6446,3 +6446,1057 @@ ol, ul {
     }
 
 }
+
+
+/* =========================================================
+   PEAKORA ABOUT PAGE
+========================================================= */
+
+.pkab-about-page {
+    width: 100%;
+    overflow: hidden;
+    background: #ffffff;
+    color: #334454;
+}
+
+.pkab-about-page *,
+.pkab-about-page *::before,
+.pkab-about-page *::after {
+    box-sizing: border-box;
+}
+
+.pkab-container {
+    width: 1180px;
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.pkab-section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: #0879b5;
+    font-size: 11px;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.pkab-section-label::before {
+    content: "";
+    width: 24px;
+    height: 2px;
+    display: inline-block;
+    background: #35a86b;
+}
+
+.pkab-section-heading {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.pkab-section-heading h2 {
+    margin: 0 0 13px;
+    color: #071a2f;
+    font-size: 36px;
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+.pkab-section-heading p {
+    max-width: 680px;
+    margin: 0 auto;
+    color: #71808c;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   SVG ICONS
+========================================================= */
+
+.pkab-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pkab-icon svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   01. ABOUT US
+========================================================= */
+
+.pkab-about-intro {
+    position: relative;
+    padding: 85px 0 90px;
+    background: #ffffff;
+}
+
+.pkab-about-intro::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    top: -260px;
+    left: -250px;
+    border: 1px solid rgba(8, 121, 181, 0.05);
+    border-radius: 50%;
+}
+
+.pkab-about-intro-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: center;
+    gap: 70px;
+}
+
+
+/* LEFT CONTENT */
+
+.pkab-about-content {
+    position: relative;
+    z-index: 2;
+}
+
+.pkab-about-content .pkab-section-label {
+    margin-bottom: 14px;
+}
+
+.pkab-about-content h1 {
+    margin: 0 0 20px;
+    color: #071a2f;
+    font-size: 44px;
+    line-height: 1.16;
+    font-weight: 600;
+}
+
+.pkab-about-content h1 span {
+    color: #0879b5;
+}
+
+.pkab-about-text {
+    margin: 0 0 15px;
+    color: #536572;
+    font-size: 13.5px;
+    line-height: 1.85;
+}
+
+.pkab-about-text:last-of-type {
+    margin-bottom: 26px;
+}
+
+
+/* HIGHLIGHT */
+
+.pkab-about-highlight {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding-top: 20px;
+    border-top: 1px solid #e6edf1;
+}
+
+.pkab-about-highlight-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    color: #0879b5;
+    background: #eaf6fb;
+}
+
+.pkab-about-highlight strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #071a2f;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.pkab-about-highlight span {
+    display: block;
+    color: #7b8993;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* IMAGE AREA */
+
+.pkab-about-images {
+    position: relative;
+    height: 500px;
+}
+
+.pkab-about-main-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 88%;
+    height: 435px;
+    overflow: hidden;
+    border-radius: 26px 26px 26px 70px;
+    box-shadow: 0 20px 45px rgba(7, 26, 47, 0.15);
+}
+
+.pkab-about-main-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.pkab-about-main-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(7, 26, 47, 0.02),
+        rgba(7, 26, 47, 0.17)
+    );
+}
+
+
+/* SMALL IMAGE */
+
+.pkab-about-secondary-image {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    width: 180px;
+    height: 180px;
+    padding: 7px;
+    background: #ffffff;
+    border-radius: 21px;
+    box-shadow: 0 15px 35px rgba(7, 26, 47, 0.16);
+    z-index: 3;
+}
+
+.pkab-about-secondary-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+/* EXPERIENCE */
+
+.pkab-about-experience {
+    position: absolute;
+    right: 12px;
+    bottom: 0;
+    z-index: 4;
+    width: 145px;
+    padding: 15px 16px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(7, 26, 47, 0.14);
+}
+
+.pkab-about-experience strong {
+    display: block;
+    margin-bottom: 3px;
+    color: #0879b5;
+    font-size: 21px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.pkab-about-experience span {
+    display: block;
+    color: #7b8993;
+    font-size: 10px;
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   02. MISSION & VISION
+========================================================= */
+
+.pkab-purpose {
+    padding: 88px 0;
+    background: #f7fafc;
+}
+
+.pkab-purpose-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.pkab-purpose-card {
+    position: relative;
+    padding: 38px 36px;
+    background: #ffffff;
+    border: 1px solid #e4edf2;
+    border-radius: 19px;
+    box-shadow: 0 7px 25px rgba(7, 26, 47, 0.04);
+    overflow: hidden;
+}
+
+.pkab-purpose-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        #0879b5,
+        #35a86b
+    );
+}
+
+.pkab-purpose-icon {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    color: #0879b5;
+    background: #eaf6fb;
+}
+
+.pkab-purpose-card:nth-child(2) .pkab-purpose-icon {
+    color: #35a86b;
+    background: #edf8f1;
+}
+
+.pkab-purpose-card h3 {
+    margin: 0 0 11px;
+    color: #071a2f;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.pkab-purpose-card p {
+    margin: 0;
+    color: #71808c;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   03. CORE VALUES
+========================================================= */
+
+.pkab-values {
+    padding: 92px 0;
+    background: #ffffff;
+}
+
+.pkab-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.pkab-value-card {
+    position: relative;
+    min-height: 225px;
+    padding: 30px 27px;
+    background: #ffffff;
+    border: 1px solid #e3ebef;
+    border-radius: 18px;
+    transition: all 0.25s ease;
+    overflow: hidden;
+}
+
+.pkab-value-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(8, 121, 181, 0.25);
+    box-shadow: 0 16px 35px rgba(7, 26, 47, 0.08);
+}
+
+.pkab-value-number {
+    position: absolute;
+    top: 17px;
+    right: 19px;
+    color: #edf2f5;
+    font-size: 31px;
+    line-height: 1;
+}
+
+.pkab-value-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 18px;
+    border-radius: 13px;
+    color: #0879b5;
+    background: #eaf6fb;
+}
+
+.pkab-value-card:nth-child(2) .pkab-value-icon,
+.pkab-value-card:nth-child(5) .pkab-value-icon {
+    color: #35a86b;
+    background: #edf8f1;
+}
+
+.pkab-value-card h3 {
+    margin: 0 0 8px;
+    color: #071a2f;
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: 600;
+}
+
+.pkab-value-card p {
+    margin: 0;
+    color: #71808c;
+    font-size: 12.5px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   04. WHY TRAVEL WITH US
+========================================================= */
+
+.pkab-why {
+    position: relative;
+    padding: 92px 0;
+    background: #071a2f;
+    overflow: hidden;
+}
+
+.pkab-why::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    right: -260px;
+    top: -260px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 50%;
+}
+
+.pkab-why::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: -190px;
+    bottom: -220px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.pkab-why-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.pkab-why .pkab-section-label {
+    color: #76c5e5;
+}
+
+.pkab-why .pkab-section-heading h2 {
+    color: #ffffff;
+}
+
+.pkab-why .pkab-section-heading p {
+    color: rgba(255, 255, 255, 0.66);
+}
+
+.pkab-why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.pkab-why-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+    padding: 23px;
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 15px;
+    transition: all 0.25s ease;
+}
+
+.pkab-why-card:hover {
+    background: rgba(255, 255, 255, 0.09);
+    transform: translateY(-3px);
+}
+
+.pkab-why-icon {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    border-radius: 12px;
+    color: #79c8e7;
+    background: rgba(70, 166, 210, 0.13);
+}
+
+.pkab-why-card h3 {
+    margin: 0 0 7px;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.pkab-why-card p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.61);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   05. FINAL CTA
+========================================================= */
+
+.pkab-cta-section {
+    position: relative;
+    padding: 85px 0 95px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.pkab-cta-section::before {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    top: -220px;
+    right: -200px;
+    border: 1px solid rgba(8, 121, 181, 0.06);
+    border-radius: 50%;
+}
+
+.pkab-cta-box {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: stretch;
+    min-height: 370px;
+    background: #f5f9fb;
+    border: 1px solid #e0eaf0;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(7, 26, 47, 0.08);
+}
+
+
+/* CTA CONTENT */
+
+.pkab-cta-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 52px 48px 52px 58px;
+}
+
+.pkab-cta-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 13px;
+    color: #0879b5;
+    font-size: 11px;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.pkab-cta-label::before {
+    content: "";
+    width: 25px;
+    height: 2px;
+    display: inline-block;
+    background: #35a86b;
+}
+
+.pkab-cta-content h2 {
+    max-width: 550px;
+    margin: 0 0 15px;
+    color: #071a2f;
+    font-size: 38px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.pkab-cta-content p {
+    max-width: 550px;
+    margin: 0 0 25px;
+    color: #71808c;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* CTA BUTTONS */
+
+.pkab-cta-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 11px;
+}
+
+.pkab-cta-primary,
+.pkab-cta-secondary {
+    min-height: 44px;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 1;
+    transition: all 0.25s ease;
+}
+
+.pkab-cta-primary {
+    color: #ffffff;
+    background: #0879b5;
+    box-shadow: 0 8px 20px rgba(8, 121, 181, 0.20);
+}
+
+.pkab-cta-primary:hover {
+    color: #ffffff;
+    background: #056694;
+    transform: translateY(-2px);
+}
+
+.pkab-cta-secondary {
+    color: #071a2f;
+    background: #ffffff;
+    border: 1px solid #d6e3e9;
+}
+
+.pkab-cta-secondary:hover {
+    color: #0879b5;
+    border-color: #0879b5;
+}
+
+
+/* CTA IMAGE */
+
+.pkab-cta-image {
+    position: relative;
+    min-height: 370px;
+    overflow: hidden;
+}
+
+.pkab-cta-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+
+/*
+   Soft white fade from the content side.
+   This keeps the CTA visually connected without
+   putting a dark overlay over the image.
+*/
+
+.pkab-cta-image::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 42%;
+    background: linear-gradient(
+        90deg,
+        #f5f9fb 0%,
+        rgba(245, 249, 251, 0.75) 25%,
+        rgba(245, 249, 251, 0) 100%
+    );
+}
+
+
+/* SMALL CTA DECORATION */
+
+.pkab-cta-image::after {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    width: 125px;
+    height: 125px;
+    right: -65px;
+    top: -65px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .pkab-about-intro-grid {
+        gap: 45px;
+    }
+
+    .pkab-about-content h1 {
+        font-size: 38px;
+    }
+
+    .pkab-about-images {
+        height: 460px;
+    }
+
+    .pkab-about-main-image {
+        height: 400px;
+    }
+
+    .pkab-cta-content {
+        padding-left: 42px;
+        padding-right: 35px;
+    }
+
+    .pkab-cta-content h2 {
+        font-size: 33px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .pkab-container {
+        max-width: calc(100% - 36px);
+    }
+
+    .pkab-about-intro {
+        padding: 70px 0 80px;
+    }
+
+    .pkab-about-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+    .pkab-about-content {
+        max-width: 760px;
+    }
+
+    .pkab-about-images {
+        width: 90%;
+        height: 500px;
+        margin: 0 auto;
+    }
+
+    .pkab-purpose,
+    .pkab-values,
+    .pkab-why {
+        padding: 75px 0;
+    }
+
+    .pkab-values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pkab-cta-section {
+        padding: 70px 0 80px;
+    }
+
+    .pkab-cta-box {
+        grid-template-columns: 1fr;
+    }
+
+    .pkab-cta-image {
+        order: -1;
+        height: 300px;
+        min-height: 300px;
+    }
+
+    .pkab-cta-image::before {
+        left: 0;
+        right: 0;
+        top: auto;
+        bottom: 0;
+        width: 100%;
+        height: 45%;
+        background: linear-gradient(
+            0deg,
+            #f5f9fb 0%,
+            rgba(245, 249, 251, 0) 100%
+        );
+    }
+
+    .pkab-cta-content {
+        padding: 42px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .pkab-container {
+        width: calc(100% - 28px);
+        max-width: none;
+    }
+
+    .pkab-section-heading {
+        margin-bottom: 35px;
+    }
+
+    .pkab-section-heading h2 {
+        font-size: 28px;
+    }
+
+    .pkab-section-heading p {
+        font-size: 12.5px;
+        line-height: 1.75;
+    }
+
+
+    /* ABOUT */
+
+    .pkab-about-intro {
+        padding: 55px 0 65px;
+    }
+
+    .pkab-about-content h1 {
+        font-size: 31px;
+        line-height: 1.2;
+    }
+
+    .pkab-about-text {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .pkab-about-images {
+        width: 100%;
+        height: 410px;
+    }
+
+    .pkab-about-main-image {
+        width: 88%;
+        height: 340px;
+        border-radius: 21px 21px 21px 55px;
+    }
+
+    .pkab-about-secondary-image {
+        width: 145px;
+        height: 145px;
+        bottom: 14px;
+    }
+
+    .pkab-about-experience {
+        right: 0;
+        bottom: 0;
+        width: 125px;
+        padding: 12px;
+    }
+
+    .pkab-about-experience strong {
+        font-size: 18px;
+    }
+
+    .pkab-about-experience span {
+        font-size: 9px;
+    }
+
+
+    /* PURPOSE */
+
+    .pkab-purpose {
+        padding: 65px 0;
+    }
+
+    .pkab-purpose-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .pkab-purpose-card {
+        padding: 30px 25px;
+    }
+
+    .pkab-purpose-card h3 {
+        font-size: 19px;
+    }
+
+    .pkab-purpose-card p {
+        font-size: 12.5px;
+    }
+
+
+    /* VALUES */
+
+    .pkab-values {
+        padding: 65px 0;
+    }
+
+    .pkab-values-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .pkab-value-card {
+        min-height: auto;
+        padding: 27px 24px;
+    }
+
+
+    /* WHY */
+
+    .pkab-why {
+        padding: 65px 0;
+    }
+
+    .pkab-why-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .pkab-why-card {
+        padding: 19px;
+    }
+
+    .pkab-why-card h3 {
+        font-size: 14px;
+    }
+
+    .pkab-why-card p {
+        font-size: 11.5px;
+    }
+
+
+    /* CTA */
+
+    .pkab-cta-section {
+        padding: 60px 0 70px;
+    }
+
+    .pkab-cta-box {
+        border-radius: 20px;
+    }
+
+    .pkab-cta-image {
+        height: 245px;
+        min-height: 245px;
+    }
+
+    .pkab-cta-content {
+        padding: 35px 24px 38px;
+    }
+
+    .pkab-cta-content h2 {
+        font-size: 29px;
+        line-height: 1.22;
+    }
+
+    .pkab-cta-content p {
+        font-size: 12.5px;
+        line-height: 1.75;
+    }
+
+    .pkab-cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pkab-cta-primary,
+    .pkab-cta-secondary {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .pkab-container {
+        width: calc(100% - 24px);
+    }
+
+    .pkab-about-content h1 {
+        font-size: 28px;
+    }
+
+    .pkab-about-images {
+        height: 370px;
+    }
+
+    .pkab-about-main-image {
+        height: 305px;
+    }
+
+    .pkab-about-secondary-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .pkab-about-experience {
+        width: 110px;
+    }
+
+    .pkab-about-highlight span {
+        font-size: 10px;
+    }
+
+    .pkab-cta-content h2 {
+        font-size: 27px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY / IMAGE FIX
+========================================================= */
+
+.pkab-about-page img {
+    max-width: 100%;
+}
+
+.pkab-about-page a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
