@@ -6465,12 +6465,6 @@ ol, ul {
     box-sizing: border-box;
 }
 
-.pkab-container {
-    width: 1180px;
-    max-width: calc(100% - 40px);
-    margin: 0 auto;
-}
-
 
 /* =========================================================
    COMMON
@@ -6482,7 +6476,7 @@ ol, ul {
     gap: 8px;
     margin-bottom: 12px;
     color: #0879b5;
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.4;
     text-transform: uppercase;
 }
@@ -6497,7 +6491,7 @@ ol, ul {
 
 .pkab-section-heading {
     max-width: 720px;
-    margin: 0 auto 48px;
+    margin: 0 auto 22px;
     text-align: center;
 }
 
@@ -6513,7 +6507,7 @@ ol, ul {
     max-width: 680px;
     margin: 0 auto;
     color: #71808c;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.8;
 }
 
@@ -6547,7 +6541,7 @@ ol, ul {
 
 .pkab-about-intro {
     position: relative;
-    padding: 85px 0 90px;
+    padding: 60px 0;
     background: #ffffff;
 }
 
@@ -6582,7 +6576,7 @@ ol, ul {
     margin-bottom: 14px;
 }
 
-.pkab-about-content h1 {
+.pkab-about-content h2 {
     margin: 0 0 20px;
     color: #071a2f;
     font-size: 44px;
@@ -6590,15 +6584,14 @@ ol, ul {
     font-weight: 600;
 }
 
-.pkab-about-content h1 span {
+.pkab-about-content h2 span {
     color: #0879b5;
 }
 
 .pkab-about-text {
     margin: 0 0 15px;
     color: #536572;
-    font-size: 13.5px;
-    line-height: 1.85;
+    font-size: 16px;
 }
 
 .pkab-about-text:last-of-type {
@@ -6706,9 +6699,9 @@ ol, ul {
 .pkab-about-experience {
     position: absolute;
     right: 12px;
-    bottom: 0;
+    bottom: 20px;
     z-index: 4;
-    width: 145px;
+    width: 175px;
     padding: 15px 16px;
     background: #ffffff;
     border-radius: 14px;
@@ -6727,7 +6720,7 @@ ol, ul {
 .pkab-about-experience span {
     display: block;
     color: #7b8993;
-    font-size: 10px;
+    font-size: 14px;
     line-height: 1.45;
 }
 
@@ -6737,7 +6730,7 @@ ol, ul {
 ========================================================= */
 
 .pkab-purpose {
-    padding: 88px 0;
+    padding: 60px 0;
     background: #f7fafc;
 }
 
@@ -6788,7 +6781,7 @@ ol, ul {
 .pkab-purpose-card h3 {
     margin: 0 0 11px;
     color: #071a2f;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 1.3;
     font-weight: 600;
 }
@@ -6796,8 +6789,7 @@ ol, ul {
 .pkab-purpose-card p {
     margin: 0;
     color: #71808c;
-    font-size: 13px;
-    line-height: 1.8;
+    font-size: 16px;
 }
 
 
@@ -6806,7 +6798,7 @@ ol, ul {
 ========================================================= */
 
 .pkab-values {
-    padding: 92px 0;
+    padding: 60px 0;
     background: #ffffff;
 }
 
@@ -6850,6 +6842,10 @@ ol, ul {
     color: #0879b5;
     background: #eaf6fb;
 }
+.pkab-value-icon svg {
+    width: 36px;
+    height: 36px;
+}
 
 .pkab-value-card:nth-child(2) .pkab-value-icon,
 .pkab-value-card:nth-child(5) .pkab-value-icon {
@@ -6860,7 +6856,7 @@ ol, ul {
 .pkab-value-card h3 {
     margin: 0 0 8px;
     color: #071a2f;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.35;
     font-weight: 600;
 }
@@ -6868,8 +6864,7 @@ ol, ul {
 .pkab-value-card p {
     margin: 0;
     color: #71808c;
-    font-size: 12.5px;
-    line-height: 1.7;
+    font-size: 16px;
 }
 
 
@@ -6879,7 +6874,7 @@ ol, ul {
 
 .pkab-why {
     position: relative;
-    padding: 92px 0;
+    padding: 60px 0;
     background: #071a2f;
     overflow: hidden;
 }
@@ -6953,11 +6948,14 @@ ol, ul {
     color: #79c8e7;
     background: rgba(70, 166, 210, 0.13);
 }
-
+.pkab-why-icon svg{
+    width: 36px;
+    height: 36px;
+}
 .pkab-why-card h3 {
     margin: 0 0 7px;
     color: #ffffff;
-    font-size: 15px;
+    font-size: 20px;
     line-height: 1.4;
     font-weight: 600;
 }
@@ -6965,8 +6963,7 @@ ol, ul {
 .pkab-why-card p {
     margin: 0;
     color: rgba(255, 255, 255, 0.61);
-    font-size: 12px;
-    line-height: 1.7;
+    font-size: 16px;
 }
 
 
@@ -6976,22 +6973,10 @@ ol, ul {
 
 .pkab-cta-section {
     position: relative;
-    padding: 85px 0 95px;
+    padding: 60px 0;
     background: #ffffff;
     overflow: hidden;
 }
-
-.pkab-cta-section::before {
-    content: "";
-    position: absolute;
-    width: 360px;
-    height: 360px;
-    top: -220px;
-    right: -200px;
-    border: 1px solid rgba(8, 121, 181, 0.06);
-    border-radius: 50%;
-}
-
 .pkab-cta-box {
     position: relative;
     display: grid;
@@ -7049,8 +7034,7 @@ ol, ul {
     max-width: 550px;
     margin: 0 0 25px;
     color: #71808c;
-    font-size: 13px;
-    line-height: 1.8;
+    font-size: 16px;
 }
 
 
@@ -7073,7 +7057,7 @@ ol, ul {
     gap: 8px;
     border-radius: 30px;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1;
     transition: all 0.25s ease;
 }
@@ -7118,44 +7102,6 @@ ol, ul {
 }
 
 
-/*
-   Soft white fade from the content side.
-   This keeps the CTA visually connected without
-   putting a dark overlay over the image.
-*/
-
-.pkab-cta-image::before {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 42%;
-    background: linear-gradient(
-        90deg,
-        #f5f9fb 0%,
-        rgba(245, 249, 251, 0.75) 25%,
-        rgba(245, 249, 251, 0) 100%
-    );
-}
-
-
-/* SMALL CTA DECORATION */
-
-.pkab-cta-image::after {
-    content: "";
-    position: absolute;
-    z-index: 3;
-    width: 125px;
-    height: 125px;
-    right: -65px;
-    top: -65px;
-    border: 1px solid rgba(255, 255, 255, 0.55);
-    border-radius: 50%;
-}
-
-
 /* =========================================================
    TABLET
 ========================================================= */
@@ -7166,7 +7112,7 @@ ol, ul {
         gap: 45px;
     }
 
-    .pkab-about-content h1 {
+    .pkab-about-content h2 {
         font-size: 38px;
     }
 
@@ -7283,26 +7229,15 @@ ol, ul {
         font-size: 28px;
     }
 
-    .pkab-section-heading p {
-        font-size: 12.5px;
-        line-height: 1.75;
-    }
-
-
     /* ABOUT */
 
     .pkab-about-intro {
         padding: 55px 0 65px;
     }
 
-    .pkab-about-content h1 {
+    .pkab-about-content h2 {
         font-size: 31px;
         line-height: 1.2;
-    }
-
-    .pkab-about-text {
-        font-size: 13px;
-        line-height: 1.8;
     }
 
     .pkab-about-images {
@@ -7333,11 +7268,6 @@ ol, ul {
         font-size: 18px;
     }
 
-    .pkab-about-experience span {
-        font-size: 9px;
-    }
-
-
     /* PURPOSE */
 
     .pkab-purpose {
@@ -7356,11 +7286,6 @@ ol, ul {
     .pkab-purpose-card h3 {
         font-size: 19px;
     }
-
-    .pkab-purpose-card p {
-        font-size: 12.5px;
-    }
-
 
     /* VALUES */
 
@@ -7398,15 +7323,10 @@ ol, ul {
         font-size: 14px;
     }
 
-    .pkab-why-card p {
-        font-size: 11.5px;
-    }
-
-
     /* CTA */
 
     .pkab-cta-section {
-        padding: 60px 0 70px;
+        padding: 60px 0 20px;
     }
 
     .pkab-cta-box {
@@ -7425,11 +7345,6 @@ ol, ul {
     .pkab-cta-content h2 {
         font-size: 29px;
         line-height: 1.22;
-    }
-
-    .pkab-cta-content p {
-        font-size: 12.5px;
-        line-height: 1.75;
     }
 
     .pkab-cta-buttons {
@@ -7455,7 +7370,7 @@ ol, ul {
         width: calc(100% - 24px);
     }
 
-    .pkab-about-content h1 {
+    .pkab-about-content h2 {
         font-size: 28px;
     }
 
